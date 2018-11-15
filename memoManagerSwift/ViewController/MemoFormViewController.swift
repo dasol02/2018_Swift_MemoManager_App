@@ -6,12 +6,12 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var preview: UIImageView!
     
     var subject : String!           // 네비게이션 상단의 제목 타이틀
+    var picker = UIImagePickerController() // 이미지 피커 인스턴스를 생성한다.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contents.delegate = self
-        
-        
+        picker.delegate = self
     }
     
     // 저장 버튼을 클릭했을 때 호출되는 메소드
@@ -36,19 +36,20 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memolist.append(data)
         
+        
         // 작성폼 화면을 종료하고, 이전화면으로 되돌아 간다.
         _ = self.navigationController?.popViewController(animated: true)
-        
     }
     
     
     // 카메라 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func pick(_ sender: Any) {
-        // 이미지 피커 인스턴스를 생성한다.
-        let picker = UIImagePickerController()
         
-        picker.delegate = self
+        // 편집 여부 허용
         picker.allowsEditing = true
+        
+        // 라리브러리 타입
+        picker.sourceType = .photoLibrary
         
         // 이미지 피커 화면을 표시한다.
         self.present(picker, animated:false)

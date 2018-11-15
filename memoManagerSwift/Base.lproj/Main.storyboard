@@ -37,7 +37,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="XSd-D0-ijp" customClass="MemoTableViewCell" customModule="memoManagerSwift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MemoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="80" id="XSd-D0-ijp" userLabel="Memo Cell Type Label" customClass="MemoTableViewCell" customModule="memoManagerSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XSd-D0-ijp" id="AC0-hC-Gsx">
@@ -80,8 +80,13 @@
                                         <constraint firstItem="twp-mk-LBi" firstAttribute="top" secondItem="AC0-hC-Gsx" secondAttribute="topMargin" id="jYY-2b-Ssz"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contents" destination="cHl-1Y-tER" id="puB-QO-1Px"/>
+                                    <outlet property="regdate" destination="cXy-rB-6ND" id="llK-xD-KNT"/>
+                                    <outlet property="subject" destination="twp-mk-LBi" id="naz-sc-Xiv"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="8Kw-Qi-guj" customClass="MemoTableViewCell" customModule="memoManagerSwift" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MemoCellWithImage" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCellWithImage" rowHeight="80" id="8Kw-Qi-guj" userLabel="Memo Cell Type Image" customClass="MemoTableViewCell" customModule="memoManagerSwift" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Kw-Qi-guj" id="JUv-yr-Gcu">
@@ -133,6 +138,12 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="IG6-u8-BAD" secondAttribute="bottom" id="t1y-Ua-SbW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contents" destination="IG6-u8-BAD" id="AnE-Bz-X7j"/>
+                                    <outlet property="img" destination="uaH-qF-gyz" id="lRK-u1-43P"/>
+                                    <outlet property="regdate" destination="yWz-rS-7GS" id="ISo-07-EH1"/>
+                                    <outlet property="subject" destination="YDH-tT-J4t" id="Nhb-JV-hGA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -168,7 +179,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-Ui-kzR">
-                                <rect key="frame" x="0.0" y="72" width="375" height="246.5"/>
+                                <rect key="frame" x="5" y="72" width="365" height="246.5"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
@@ -183,12 +194,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="leading" secondItem="zGG-IA-ZPX" secondAttribute="leading" id="EPw-cX-pHi"/>
+                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="leading" secondItem="zGG-IA-ZPX" secondAttribute="leading" constant="5" id="EPw-cX-pHi"/>
                             <constraint firstItem="g6u-Uv-leX" firstAttribute="leading" secondItem="zGG-IA-ZPX" secondAttribute="leading" id="Fjo-Xv-CCN"/>
                             <constraint firstItem="uY0-Ui-kzR" firstAttribute="bottom" secondItem="zGG-IA-ZPX" secondAttribute="centerY" constant="-15" id="SP3-vV-g9n"/>
                             <constraint firstItem="uY0-Ui-kzR" firstAttribute="top" secondItem="L9c-TN-gV5" secondAttribute="bottom" constant="8" symbolic="YES" id="b2t-e9-JYM"/>
                             <constraint firstItem="g6u-Uv-leX" firstAttribute="top" secondItem="uY0-Ui-kzR" secondAttribute="bottom" constant="20" id="g2O-p6-thF"/>
-                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="trailing" secondItem="zGG-IA-ZPX" secondAttribute="trailing" id="wAH-M0-fAv"/>
+                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="trailing" secondItem="zGG-IA-ZPX" secondAttribute="trailing" constant="-5" id="wAH-M0-fAv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="메모 작성" id="hGV-pC-HCp">
@@ -217,7 +228,7 @@
         <!--상세화면-->
         <scene sceneID="bDZ-2j-y7u">
             <objects>
-                <viewController title="상세화면" id="WfI-Lh-qgs" customClass="MemoReadViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoRead" title="상세화면" id="WfI-Lh-qgs" customClass="MemoReadViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0iT-j0-PLv"/>
                         <viewControllerLayoutGuide type="bottom" id="tBO-5z-XjK"/>
@@ -257,14 +268,19 @@
                             <constraint firstItem="MnP-48-LOQ" firstAttribute="top" secondItem="wnm-mm-8z9" secondAttribute="bottom" constant="20" id="2oJ-qb-lnc"/>
                             <constraint firstItem="wnm-mm-8z9" firstAttribute="leading" secondItem="Qy4-Uk-sfn" secondAttribute="leadingMargin" id="3nQ-TC-Iko"/>
                             <constraint firstItem="TW6-dA-ggG" firstAttribute="leading" secondItem="Qy4-Uk-sfn" secondAttribute="leadingMargin" id="5C4-xe-VAh"/>
-                            <constraint firstItem="TW6-dA-ggG" firstAttribute="top" secondItem="0iT-j0-PLv" secondAttribute="bottom" constant="16" id="9fm-xh-Jhf"/>
                             <constraint firstItem="MnP-48-LOQ" firstAttribute="leading" secondItem="Qy4-Uk-sfn" secondAttribute="leadingMargin" id="Tn3-Bg-cWf"/>
                             <constraint firstItem="wnm-mm-8z9" firstAttribute="top" secondItem="TW6-dA-ggG" secondAttribute="bottom" constant="20" id="YP0-t5-S42"/>
+                            <constraint firstItem="TW6-dA-ggG" firstAttribute="top" secondItem="0iT-j0-PLv" secondAttribute="bottom" constant="16" id="eIg-xs-1ih"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wnm-mm-8z9" secondAttribute="trailing" id="vyp-ws-ao2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TW6-dA-ggG" secondAttribute="trailing" id="xXd-9s-3k4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="VCY-rW-9Et"/>
+                    <connections>
+                        <outlet property="contents" destination="wnm-mm-8z9" id="g3k-M7-1gf"/>
+                        <outlet property="img" destination="MnP-48-LOQ" id="5mw-wh-2SK"/>
+                        <outlet property="subject" destination="TW6-dA-ggG" id="hXx-0n-KGW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mX-BV-MRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
