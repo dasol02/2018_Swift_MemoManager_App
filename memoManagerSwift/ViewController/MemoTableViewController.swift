@@ -31,6 +31,7 @@ class MemoTableViewController: UITableViewController {
         
         // 재사용 큐로부터 프로토타입 셀의 인스턴스를 전달 받는다.
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? MemoTableViewCell else {
+            // 옵셔널 변경 실패 할 경우
             return UITableViewCell()
         }
         
