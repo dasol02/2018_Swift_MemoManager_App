@@ -45,14 +45,53 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
     // 카메라 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func pick(_ sender: Any) {
         
-        // 편집 여부 허용
+        // 얼럿 뷰 생성
+        let alertView = UIAlertController(title: "사진을 추가할 방법을 선택하여 주십시오.", message: "메시지 내용", preferredStyle: .actionSheet)
+        
+        // 얼럿 뷰 내의 노출될 아이템 추가
+        alertView.addAction(UIAlertAction(title: "카메라", style: .default, handler: { (_) in
+            
+            // 해당 아이템 클릭시 호출될 메소드
+            self.presentPick(source: .camera)
+        }))
+        
+        alertView.addAction(UIAlertAction(title: "저장앨범", style: .default, handler: { (_) in
+            self.presentPick(source: .savedPhotosAlbum)
+        }))
+
+        alertView.addAction(UIAlertAction(title: "사진 라이브러리", style: .default, handler: { (_) in
+            self.presentPick(source: .photoLibrary)
+        }))
+        
+        alertView.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { (_) in
+            
+        }))
+        
+        // 얼럿뷰 선택화면 화면 호출
+        self.present(alertView, animated:false)
+    }
+    
+    
+    // 이미지 선택 관련 화면을 생성할 메소드(이미지 로드방법을 선택하면 호출되는 메소드)
+    func presentPick(source:UIImagePickerController.SourceType){
+        
+        // 이미지를 추가할 방법 가능 여부 파악
+        guard UIImagePickerController.isSourceTypeAvailable(source) == true else {
+            let alert = UIAlertController(title: "사용할 수 없는 타입입니다.", message: nil, preferredStyle: .alert)
+            self.present(alert, animated: false)
+            return
+        }
+ 
+        // 이미지 피커 인스턴스 생성
+        let picker = UIImagePickerController()
+        
+        // 이미지 피커 관련 호출 타입 및 딜리게이트 연결
+        picker.delegate = self
         picker.allowsEditing = true
+        picker.sourceType = source
         
-        // 라리브러리 타입
-        picker.sourceType = .photoLibrary
-        
-        // 이미지 피커 화면을 표시한다.
-        self.present(picker, animated:false)
+        // 이미지 피커 화면 표시
+        self.present(picker, animated: false)
     }
     
     
