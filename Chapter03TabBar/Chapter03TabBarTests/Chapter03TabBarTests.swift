@@ -1,11 +1,3 @@
-//
-//  Chapter03TabBarTests.swift
-//  Chapter03TabBarTests
-//
-//  Created by GAEA on 2018. 12. 20..
-//  Copyright © 2018년 gaeasoft. All rights reserved.
-//
-
 import XCTest
 @testable import Chapter03TabBar
 
