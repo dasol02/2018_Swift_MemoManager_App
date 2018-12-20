@@ -20,6 +20,30 @@ class BaseViewController: UIViewController {
         title.sizeToFit()                                                             // 내용에 맞게 크기 변경
         title.center.x = self.view.frame.width / 2                                     // 라벨 화면 중앙 정렬
         self.view.addSubview(title)                                                   // 화면 추가
+        
+        var tabbarItemString : String!
+        var tabbarImage : UIImage!
+        
+        
+        switch titleString {
+        case BaseViewController.FristViewController:
+            tabbarItemString = "Calendar"
+            tabbarImage = UIImage(named: "calendar.png")
+            break
+        case BaseViewController.SecondViewController:
+            tabbarItemString = "File"
+            tabbarImage = UIImage(named: "file-tree.png")
+            break
+        case BaseViewController.ThirdViewController:
+            tabbarItemString = "Photo"
+            tabbarImage = UIImage(named: "photo.png")
+            break
+        default: break
+        }
+        
+        
+        self.tabBarItem.image = tabbarImage
+        self.tabBarItem.title = tabbarItemString
     }
 
     /*
