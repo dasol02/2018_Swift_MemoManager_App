@@ -17,6 +17,11 @@ class SettingViewController: UIViewController {
         // 네비게이션 타이틀 설정
         self.navigationItem.title = "설정"
         
+        // 네비게이션 아이템 추가
+        let submitBTN = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.compose, target: self, action: #selector(submitNextPage(_:)))
+        self.navigationItem.rightBarButtonItem = submitBTN
+        
+        
         self.createLabel()          // 라벨 생성
         self.createTextField()      // 텍스트 필드 생성
         self.createSwitchButton()   // 스위치 버튼 생성
@@ -28,9 +33,20 @@ class SettingViewController: UIViewController {
        
         let color = self.UIColorFromRGB(rgbValue: 0xDFDFDF)  // 헥사코드 색상 반환 : 0xDFDFDF
         //        self.createFontLabel()    // 폰트 로그 테스트
+        print(color)
     }
 
 // MARK: - ACTION
+    // 다음 화면 이동
+    @objc func submitNextPage(_ sender : Any){
+        let rvc = ReadViewController()
+        rvc.pEmail = self.paramEmail.text
+        rvc.pUpdate = self.paramUpdate.isOn
+        rvc.pInterval = self.paramInterval.value
+        
+        self.navigationController?.pushViewController(rvc, animated: true)
+    }
+    
     // 스위치 버튼 액션
     @objc func presentUpdatevalue(_ sender : UISwitch){
         self.textUpdate.text = (sender.isOn == true ? "갱신함" : "갱신하지 않음")
