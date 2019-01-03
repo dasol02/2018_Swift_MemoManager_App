@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -22,27 +22,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 tbItems[2].image = UIImage(named: "facebook@2x.png")?.withRenderingMode(UIImage.RenderingMode.automatic)
                 
                 
-                // 클릭시 탭바 설정
-                for tbItem in tbItems {
-                    //이미지 설정
-                    let image = UIImage(named: "checkmark")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-                    tbItem.selectedImage = image
-                    
-                    // 텍스트 설정
-                    
-                    // 색상
-                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.gray], for: UIControl.State.disabled)
-                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red], for: UIControl.State.selected)
-                    
-                    // 크기
-                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 15)], for: UIControl.State.normal)
-                }
+                // for 문 사용 클릭시 탭바 설정
+//                for tbItem in tbItems {
+//                    //이미지 설정
+//                    let image = UIImage(named: "checkmark")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+//                    tbItem.selectedImage = image
+//
+//                    // 텍스트 설정
+//
+//                    // 색상
+//                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.gray], for: UIControl.State.disabled)
+//                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red], for: UIControl.State.selected)
+//
+//                    // 크기
+//                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 15)], for: UIControl.State.normal)
+//                }
                 
                 
                 // 탭바 타이틀 입력
                 tbItems[0].title = "Calendar"
                 tbItems[1].title = "File"
                 tbItems[2].title = "Photo"
+                
+                
+                
+                // 탭바 전체 속성 일괄 변경
+                let tbItemProxy = UITabBarItem.appearance()
+                tbItemProxy.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red], for: UIControl.State.selected)
+                tbItemProxy.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.gray], for: UIControl.State.disabled)
+                tbItemProxy.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 15)], for: UIControl.State.normal)
+                
+                let tbProxy = UITabBar.appearance()
+                tbProxy.tintColor = UIColor.white
+                tbProxy.backgroundImage = UIImage(named: "menubar-bg-mini.png")
+                
             }
             
             // 탭바 아이템의 이미지 색상을 변경
