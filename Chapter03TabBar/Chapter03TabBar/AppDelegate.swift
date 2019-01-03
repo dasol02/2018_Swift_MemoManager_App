@@ -9,7 +9,77 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
+        if let tBC = self.window?.rootViewController as? UITabBarController {
+            if let tbItems = tBC.tabBar.items {
+                // 커스텀 탭바 아이콘 추가 (탭바 사이즈에 맞게)
+//                tbItems[0].image = UIImage(named: "calendar.png")
+//                tbItems[1].image = UIImage(named: "file-tree.png")
+//                tbItems[2].image = UIImage(named: "photo.png")
+                
+                // 이미지 원본으로 사용할 경우
+                tbItems[0].image = UIImage(named: "designbump@2x.png")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+                tbItems[1].image = UIImage(named: "rss@2x.png")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                tbItems[2].image = UIImage(named: "facebook@2x.png")?.withRenderingMode(UIImage.RenderingMode.automatic)
+                
+                
+                // 클릭시 탭바 설정
+                for tbItem in tbItems {
+                    //이미지 설정
+                    let image = UIImage(named: "checkmark")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+                    tbItem.selectedImage = image
+                    
+                    // 텍스트 설정
+                    
+                    // 색상
+                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.gray], for: UIControl.State.disabled)
+                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : UIColor.red], for: UIControl.State.selected)
+                    
+                    // 크기
+                    tbItem.setTitleTextAttributes([NSAttributedString.Key(rawValue: NSAttributedString.Key.font.rawValue) : UIFont.systemFont(ofSize: 15)], for: UIControl.State.normal)
+                }
+                
+                
+                // 탭바 타이틀 입력
+                tbItems[0].title = "Calendar"
+                tbItems[1].title = "File"
+                tbItems[2].title = "Photo"
+            }
+            
+            // 탭바 아이템의 이미지 색상을 변경
+//            tBC.tabBar.tintColor = UIColor.white
+            
+            let a = 0
+            switch a {
+                case 1:
+                    // 탭바 배경 추가 (이미지 좌우 크기가 모자를 경우 알아서 반복하여 늘어난다)
+                    tBC.tabBar.backgroundImage = UIImage(named: "menubar-bg-mini.png")
+                    break;
+                case 2:
+                    tBC.tabBar.backgroundImage = UIImage(named: "connectivity-bar.png")
+                    break;
+                case 3:
+                    // 탭바 배경 이미지 추가 (이미지의 좌우간격 수동 늘림)
+                    let image = UIImage(named: "connectivity-bar.png")?.stretchableImage(withLeftCapWidth: 5, topCapHeight: 16)
+                    tBC.tabBar.backgroundImage = image
+                    break;
+                case 4:
+                    // 탭바 배경 이미지 추가 (이미지의 상하 간격 수동 늘림)
+                    let image = UIImage(named: "connectivity-bar.png")?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
+                    tBC.tabBar.backgroundImage = image
+                    break;
+                case 5:
+                    // 배경 색상 변경
+                    tBC.tabBar.barTintColor = UIColor.black
+                    break;
+                case 6:
+                    // 배경 이미지를 틴트 컬러에 추가
+                    let image = UIImage(named: "menubar-bg-mini.png")!
+                    tBC.tabBar.barTintColor = UIColor(patternImage: image)
+                    break;
+                default:
+                    break;
+            }
+        }
         
         return true
     }
