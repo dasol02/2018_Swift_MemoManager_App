@@ -4,18 +4,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+        self.setNavigationItem() // 네비게이션 아이템 생성
+    }
+    
+//** 네비게이션 아이템 생성
+    func setNavigationItem(){
         self.inintLeftBarButton() // 네비게이션 왼쪽 버튼 추가
         self.inintRightBarButton() // 네비게이션 오른쪽 버튼 추가
         self.initTitleInput()   // 타이틀에 텍스트 필드 추가
-//        self.initTitleImage() // 타이틀 이미지 추가
-//        self.initTitleNew() // 타이틀 추가 (타이틀 뷰 추가)
-//        self.initTitle()    // 타이틀 추가 (라벨 추가)
+        //        self.initTitleImage() // 타이틀 이미지 추가
+        //        self.initTitleNew() // 타이틀 추가 (타이틀 뷰 추가)
+        //        self.initTitle()    // 타이틀 추가 (라벨 추가)
     }
     
-    
+//** 네비게이션 좌측 버튼 추가
     func inintRightBarButton(){
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 70, height: 37)
@@ -46,6 +48,7 @@ class ViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightItem
     }
     
+//** 네비게이션 우측 버튼 추가
     func inintLeftBarButton(){
         let backImage = UIImage(named: "arrow-back")
         let leftItem = UIBarButtonItem(image: backImage, style: .plain, target: self, action: nil)
