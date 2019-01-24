@@ -5,13 +5,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // 코드로 버튼 생성
         let csBtn = CSButton()
         csBtn.frame = CGRect(x: 0, y: 0, width: 150, height: 30)
         csBtn.center = CGPoint(x: self.view.frame.width/2, y: self.view.frame.height/2)
         self.view.addSubview(csBtn)
-        
         
         // 인자값에 따라 스타일 생성 버튼 1
         let rectBtn = CSButton(type: CSButton.CSButtonType.rect)
@@ -38,6 +36,7 @@ class ViewController: UIViewController {
         
         // s클래스 신규 생성
         let s = Boo.init()
+        
         // s클래스 값 지정
         s.v = 100
         s.c = "SSS"

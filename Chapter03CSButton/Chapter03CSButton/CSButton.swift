@@ -35,7 +35,7 @@ class CSButton: UIButton {
 // init 초기화 메서드
     convenience init (type: CSButtonType ){
         self.init()
-
+        
         switch type {
         case .rect:
             self.backgroundColor = UIColor.black
@@ -53,6 +53,8 @@ class CSButton: UIButton {
             self.setTitle("Circle Button", for: UIControl.State.normal)
             break
         }
+        
+        self.addTarget(self, action: #selector(counting(_:)), for: UIControl.Event.touchUpInside)
     }
     
     // 스토리 보드 생성시 호출
@@ -83,6 +85,11 @@ class CSButton: UIButton {
         self.setTitle(title, for: UIControl.State.normal)    // 버튼 텍스트
     }
 
+    
+    @objc func counting(_ sender: UIButton){
+        sender.tag = sender.tag + 1
+        sender.setTitle("\(sender.tag) 번째 클릭", for: UIControl.State.normal)
+    }
 
     /*
     // Only override draw() if you perform custom drawing.
