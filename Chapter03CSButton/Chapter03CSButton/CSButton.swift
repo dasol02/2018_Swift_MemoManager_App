@@ -2,9 +2,61 @@ import UIKit
 
 class CSButton: UIButton {
 
+    public enum CSButtonType {
+        case rect
+        case circle
+    }
+    
+// 클래스내 프로퍼티 값 변경시 호출
+    var style: CSButtonType = .rect {
+    //  willSet    : 변경되기 직전
+        didSet{ // : 변경된 이후
+            switch style {
+            case .rect:
+                self.backgroundColor = UIColor.black
+                self.layer.borderColor = UIColor.black.cgColor
+                self.layer.borderWidth = 2
+                self.layer.cornerRadius = 0
+                self.setTitleColor(UIColor.white, for: UIControl.State.normal)
+                self.setTitle("Rect Button", for: UIControl.State.normal)
+                break
+            case .circle:
+                self.backgroundColor = UIColor.red
+                self.layer.borderColor = UIColor.blue.cgColor
+                self.layer.borderWidth = 2
+                self.layer.cornerRadius = 50
+                self.setTitle("Circle Button", for: UIControl.State.normal)
+                break
+            }
+        }
+    }
+    
+    
+// init 초기화 메서드
+    convenience init (type: CSButtonType ){
+        self.init()
+
+        switch type {
+        case .rect:
+            self.backgroundColor = UIColor.black
+            self.layer.borderColor = UIColor.black.cgColor
+            self.layer.borderWidth = 2
+            self.layer.cornerRadius = 0
+            self.setTitleColor(UIColor.white, for: UIControl.State.normal)
+            self.setTitle("Rect Button", for: UIControl.State.normal)
+            break
+        case .circle:
+            self.backgroundColor = UIColor.red
+            self.layer.borderColor = UIColor.blue.cgColor
+            self.layer.borderWidth = 2
+            self.layer.cornerRadius = 50
+            self.setTitle("Circle Button", for: UIControl.State.normal)
+            break
+        }
+    }
     
     // 스토리 보드 생성시 호출
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
 
         self.custonButtonSetting(title: "스토리보드 생성 버튼")
