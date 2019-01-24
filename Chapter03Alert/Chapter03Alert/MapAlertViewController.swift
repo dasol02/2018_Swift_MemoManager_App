@@ -72,7 +72,6 @@ class MapAlertViewController: UIViewController {
     
     // 슬라이더 얼럿뷰 생성
     @objc func sliderAlert(_ sender:UIButton){
-        
         // 컨텐츠 뷰 영역에 들어갈 뷰 컨트롤러 생성
         let contentVC = ControlViewController()
         
