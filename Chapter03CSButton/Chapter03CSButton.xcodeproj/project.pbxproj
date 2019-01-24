@@ -14,6 +14,7 @@
 		16C362FF21F9732C006A601E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C362FE21F9732C006A601E /* Assets.xcassets */; };
 		16C3630221F9732C006A601E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C3630021F9732C006A601E /* LaunchScreen.storyboard */; };
 		16C3630D21F9732C006A601E /* Chapter03CSButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3630C21F9732C006A601E /* Chapter03CSButtonTests.swift */; };
+		16C3631821F97424006A601E /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3631721F97424006A601E /* CSButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		16C3630821F9732C006A601E /* Chapter03CSButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chapter03CSButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C3630C21F9732C006A601E /* Chapter03CSButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter03CSButtonTests.swift; sourceTree = "<group>"; };
 		16C3630E21F9732C006A601E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16C3631721F97424006A601E /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				16C362F421F9732A006A601E /* AppDelegate.swift */,
 				16C362F621F9732A006A601E /* ViewController.swift */,
+				16C3631721F97424006A601E /* CSButton.swift */,
 				16C362F821F9732A006A601E /* Main.storyboard */,
 				16C362FE21F9732C006A601E /* Assets.xcassets */,
 				16C3630021F9732C006A601E /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 				16C362F721F9732A006A601E /* ViewController.swift in Sources */,
 				16C362F521F9732A006A601E /* AppDelegate.swift in Sources */,
 				16C362FD21F9732A006A601E /* Chapter03CSButton.xcdatamodeld in Sources */,
+				16C3631821F97424006A601E /* CSButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
