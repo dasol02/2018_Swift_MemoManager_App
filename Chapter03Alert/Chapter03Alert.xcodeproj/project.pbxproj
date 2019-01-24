@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		16C362DE21F85E10006A601E /* MapKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C362DD21F85E10006A601E /* MapKitViewController.swift */; };
+		16C362E121F86489006A601E /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C362E021F86489006A601E /* ImageViewController.swift */; };
+		16C362E321F8661B006A601E /* rating5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16C362E221F8661B006A601E /* rating5@2x.png */; };
+		16C362E521F955A1006A601E /* ControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C362E421F955A1006A601E /* ControlViewController.swift */; };
+		16C362E721F96A95006A601E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C362E621F96A95006A601E /* ListViewController.swift */; };
 		16EB401F21E72E170021F1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EB401E21E72E170021F1C6 /* AppDelegate.swift */; };
 		16EB402121E72E170021F1C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EB402021E72E170021F1C6 /* ViewController.swift */; };
 		16EB402421E72E170021F1C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16EB402221E72E170021F1C6 /* Main.storyboard */; };
@@ -30,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		16C362DD21F85E10006A601E /* MapKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKitViewController.swift; sourceTree = "<group>"; };
+		16C362E021F86489006A601E /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		16C362E221F8661B006A601E /* rating5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rating5@2x.png"; sourceTree = "<group>"; };
+		16C362E421F955A1006A601E /* ControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlViewController.swift; sourceTree = "<group>"; };
+		16C362E621F96A95006A601E /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		16EB401B21E72E170021F1C6 /* Chapter03Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapter03Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16EB401E21E72E170021F1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16EB402021E72E170021F1C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C362DF21F860E5006A601E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				16C362E221F8661B006A601E /* rating5@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		16EB401221E72E160021F1C6 = {
 			isa = PBXGroup;
 			children = (
@@ -83,10 +99,14 @@
 		16EB401D21E72E170021F1C6 /* Chapter03Alert */ = {
 			isa = PBXGroup;
 			children = (
+				16C362DF21F860E5006A601E /* Resources */,
 				16EB401E21E72E170021F1C6 /* AppDelegate.swift */,
 				16EB402021E72E170021F1C6 /* ViewController.swift */,
 				16EB404121E73F3B0021F1C6 /* MapAlertViewController.swift */,
 				16C362DD21F85E10006A601E /* MapKitViewController.swift */,
+				16C362E021F86489006A601E /* ImageViewController.swift */,
+				16C362E421F955A1006A601E /* ControlViewController.swift */,
+				16C362E621F96A95006A601E /* ListViewController.swift */,
 				16EB402221E72E170021F1C6 /* Main.storyboard */,
 				16EB402821E72E170021F1C6 /* Assets.xcassets */,
 				16EB402A21E72E170021F1C6 /* LaunchScreen.storyboard */,
@@ -187,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16EB402C21E72E170021F1C6 /* LaunchScreen.storyboard in Resources */,
+				16C362E321F8661B006A601E /* rating5@2x.png in Resources */,
 				16EB402921E72E170021F1C6 /* Assets.xcassets in Resources */,
 				16EB402421E72E170021F1C6 /* Main.storyboard in Resources */,
 			);
@@ -210,7 +231,10 @@
 				16C362DE21F85E10006A601E /* MapKitViewController.swift in Sources */,
 				16EB402121E72E170021F1C6 /* ViewController.swift in Sources */,
 				16EB402721E72E170021F1C6 /* Chapter03Alert.xcdatamodeld in Sources */,
+				16C362E121F86489006A601E /* ImageViewController.swift in Sources */,
 				16EB401F21E72E170021F1C6 /* AppDelegate.swift in Sources */,
+				16C362E721F96A95006A601E /* ListViewController.swift in Sources */,
+				16C362E521F955A1006A601E /* ControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
