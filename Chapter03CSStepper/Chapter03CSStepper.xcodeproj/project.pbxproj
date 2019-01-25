@@ -14,6 +14,7 @@
 		16C3636121F9B693006A601E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C3636021F9B693006A601E /* Assets.xcassets */; };
 		16C3636421F9B693006A601E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16C3636221F9B693006A601E /* LaunchScreen.storyboard */; };
 		16C3636F21F9B693006A601E /* Chapter03CSStepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3636E21F9B693006A601E /* Chapter03CSStepperTests.swift */; };
+		16C3637A21FA9EFF006A601E /* CSStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3637921FA9EFF006A601E /* CSStepper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		16C3636A21F9B693006A601E /* Chapter03CSStepperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chapter03CSStepperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16C3636E21F9B693006A601E /* Chapter03CSStepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter03CSStepperTests.swift; sourceTree = "<group>"; };
 		16C3637021F9B693006A601E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16C3637921FA9EFF006A601E /* CSStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSStepper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				16C3635621F9B692006A601E /* AppDelegate.swift */,
 				16C3635821F9B692006A601E /* ViewController.swift */,
+				16C3637921FA9EFF006A601E /* CSStepper.swift */,
 				16C3635A21F9B692006A601E /* Main.storyboard */,
 				16C3636021F9B693006A601E /* Assets.xcassets */,
 				16C3636221F9B693006A601E /* LaunchScreen.storyboard */,
@@ -203,6 +206,7 @@
 				16C3635F21F9B692006A601E /* Chapter03CSStepper.xcdatamodeld in Sources */,
 				16C3635921F9B692006A601E /* ViewController.swift in Sources */,
 				16C3635721F9B692006A601E /* AppDelegate.swift in Sources */,
+				16C3637A21FA9EFF006A601E /* CSStepper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
