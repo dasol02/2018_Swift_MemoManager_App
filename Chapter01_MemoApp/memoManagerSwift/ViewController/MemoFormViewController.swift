@@ -12,6 +12,19 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         self.contents.delegate = self
         picker.delegate = self
+        
+        let bgImage = UIImage(named: "memo-background")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        self.contents.layer.borderWidth = 0
+        self.contents.layer.borderColor = UIColor.clear.cgColor
+        self.contents.backgroundColor = UIColor.clear
+        
+        // 줄간격 추가
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 9
+        self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedString.Key.paragraphStyle : style])
+        self.contents.text = ""
     }
     
     // 저장 버튼을 클릭했을 때 호출되는 메소드
@@ -19,9 +32,18 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // 텍스트 필드의 내용이 비어있을경우 얼럿창 제공
         guard self.contents.text?.isEmpty == false else {
+            
+            // 얼럿창 UI 설정
+            let alertView = UIViewController()
+            let iconImgae = UIImage(named: "warning-icon-60")
+            alertView.view = UIImageView(image: iconImgae)
+            alertView.preferredContentSize = iconImgae?.size ?? CGSize.zero
+            
             let alert = UIAlertController(title: nil, message: "내용을 입력해주세요", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.setValue(alertView, forKey: "contentViewController")
             self.present(alert, animated: true)
+            
             return
         }
         
@@ -119,4 +141,13 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         self.navigationItem.title = subject
     }
     
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        
+        let ts = TimeInterval(0.3)
+        UIView.animate(withDuration : ts) {
+            bar?.alpha = (bar?.alpha == 0 ? 1 : 0)
+        }
+    }
 }

@@ -13,6 +13,7 @@
             <objects>
                 <navigationController id="8ng-kd-q1M" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="16l-wh-d3l">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -34,6 +35,18 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="vZo-dE-8s7">
                             <rect key="frame" x="0.0" y="188" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Lv-Ys-aD5" customClass="CSLogButton" customModule="memoManagerSwift" customModuleProvider="target">
+                                    <rect key="frame" x="50" y="7" width="275" height="30"/>
+                                    <state key="normal" title="더보기"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="2Lv-Ys-aD5" firstAttribute="centerX" secondItem="vZo-dE-8s7" secondAttribute="centerX" id="1eS-Jr-hr9"/>
+                                <constraint firstItem="2Lv-Ys-aD5" firstAttribute="leading" secondItem="vZo-dE-8s7" secondAttribute="leading" constant="50" id="E2B-p1-nhA"/>
+                                <constraint firstAttribute="trailing" secondItem="2Lv-Ys-aD5" secondAttribute="trailing" constant="50" id="ZpK-Ae-F7Q"/>
+                                <constraint firstItem="2Lv-Ys-aD5" firstAttribute="centerY" secondItem="vZo-dE-8s7" secondAttribute="centerY" id="yU2-38-TVf"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MemoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemoCell" rowHeight="80" id="XSd-D0-ijp" userLabel="Memo Cell Type Label" customClass="MemoTableViewCell" customModule="memoManagerSwift" customModuleProvider="target">
@@ -179,8 +192,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uY0-Ui-kzR">
-                                <rect key="frame" x="5" y="72" width="365" height="246.5"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="5" y="64" width="365" height="254.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                             </textView>
@@ -197,7 +209,7 @@
                             <constraint firstItem="uY0-Ui-kzR" firstAttribute="leading" secondItem="zGG-IA-ZPX" secondAttribute="leading" constant="5" id="EPw-cX-pHi"/>
                             <constraint firstItem="g6u-Uv-leX" firstAttribute="leading" secondItem="zGG-IA-ZPX" secondAttribute="leading" id="Fjo-Xv-CCN"/>
                             <constraint firstItem="uY0-Ui-kzR" firstAttribute="bottom" secondItem="zGG-IA-ZPX" secondAttribute="centerY" constant="-15" id="SP3-vV-g9n"/>
-                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="top" secondItem="L9c-TN-gV5" secondAttribute="bottom" constant="8" symbolic="YES" id="b2t-e9-JYM"/>
+                            <constraint firstItem="uY0-Ui-kzR" firstAttribute="top" secondItem="L9c-TN-gV5" secondAttribute="bottom" id="b2t-e9-JYM"/>
                             <constraint firstItem="g6u-Uv-leX" firstAttribute="top" secondItem="uY0-Ui-kzR" secondAttribute="bottom" constant="20" id="g2O-p6-thF"/>
                             <constraint firstItem="uY0-Ui-kzR" firstAttribute="trailing" secondItem="zGG-IA-ZPX" secondAttribute="trailing" constant="-5" id="wAH-M0-fAv"/>
                         </constraints>
