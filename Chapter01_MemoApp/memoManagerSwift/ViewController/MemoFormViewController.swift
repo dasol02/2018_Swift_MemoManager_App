@@ -26,7 +26,6 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedString.Key.paragraphStyle : style])
         self.contents.text = ""
     }
-    
     // 저장 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func save(_ sender: Any) {
         
