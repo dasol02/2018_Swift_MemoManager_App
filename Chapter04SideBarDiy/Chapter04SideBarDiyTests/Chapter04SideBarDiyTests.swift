@@ -1,11 +1,3 @@
-//
-//  Chapter04SideBarDiyTests.swift
-//  Chapter04SideBarDiyTests
-//
-//  Created by GAEA on 2019. 1. 28..
-//  Copyright © 2019년 gaeasoft. All rights reserved.
-//
-
 import XCTest
 @testable import Chapter04SideBarDiy
 

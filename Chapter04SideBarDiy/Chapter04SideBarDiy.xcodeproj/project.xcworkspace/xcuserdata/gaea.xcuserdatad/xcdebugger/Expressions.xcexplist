@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RevealViewController.setupView():RevealViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.storyboard?.instantiateViewController(withIdentifier: &quot;sw_front&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
