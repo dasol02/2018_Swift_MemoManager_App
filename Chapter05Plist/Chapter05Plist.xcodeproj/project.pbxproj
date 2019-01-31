@@ -14,6 +14,7 @@
 		169AFBED2202DC920042117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169AFBEC2202DC920042117A /* Assets.xcassets */; };
 		169AFBF02202DC920042117A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 169AFBEE2202DC920042117A /* LaunchScreen.storyboard */; };
 		169AFBFB2202DC920042117A /* Chapter05PlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169AFBFA2202DC920042117A /* Chapter05PlistTests.swift */; };
+		169AFC082202ED940042117A /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = 169AFC072202ED940042117A /* User.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		169AFBF62202DC920042117A /* Chapter05PlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Chapter05PlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		169AFBFA2202DC920042117A /* Chapter05PlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter05PlistTests.swift; sourceTree = "<group>"; };
 		169AFBFC2202DC920042117A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		169AFC072202ED940042117A /* User.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				169AFBEE2202DC920042117A /* LaunchScreen.storyboard */,
 				169AFBF12202DC920042117A /* Info.plist */,
 				169AFBE92202DC910042117A /* Chapter05Plist.xcdatamodeld */,
+				169AFC072202ED940042117A /* User.plist */,
 			);
 			path = Chapter05Plist;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				169AFBF02202DC920042117A /* LaunchScreen.storyboard in Resources */,
 				169AFBED2202DC920042117A /* Assets.xcassets in Resources */,
 				169AFBE82202DC910042117A /* Main.storyboard in Resources */,
+				169AFC082202ED940042117A /* User.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

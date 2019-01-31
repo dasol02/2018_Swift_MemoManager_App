@@ -1,11 +1,3 @@
-//
-//  Chapter05PlistTests.swift
-//  Chapter05PlistTests
-//
-//  Created by GAEA on 2019. 1. 31..
-//  Copyright © 2019년 gaeasoft. All rights reserved.
-//
-
 import XCTest
 @testable import Chapter05Plist
 
