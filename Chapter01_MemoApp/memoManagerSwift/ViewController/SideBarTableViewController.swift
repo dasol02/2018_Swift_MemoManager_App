@@ -86,6 +86,11 @@ class SideBarTableViewController: UITableViewController {
             let target = self.revealViewController().frontViewController as! UINavigationController
             target.pushViewController(uv!, animated: true)
             self.revealViewController().revealToggle(self)
+        }else if indexPath.row == 5 {
+            let uv = self.storyboard?.instantiateViewController(withIdentifier: "_Profile")
+            self.present(uv!, animated: true) {
+                self.revealViewController().revealToggle(self)
+            }
         }
     }
 

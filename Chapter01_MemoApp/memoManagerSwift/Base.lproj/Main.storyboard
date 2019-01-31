@@ -285,7 +285,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twt-uq-9rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1990" y="566"/>
+            <point key="canvasLocation" x="-1082" y="544"/>
         </scene>
         <!--상세화면-->
         <scene sceneID="bDZ-2j-y7u">
@@ -346,7 +346,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mX-BV-MRt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228" y="480"/>
+            <point key="canvasLocation" x="-228" y="503"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="90Z-Vm-eki">
+            <objects>
+                <navigationController storyboardIdentifier="_Profile" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="QoQ-qt-jEv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MbK-4b-LCv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="89X-2G-18p">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="lQy-0Q-7Qp" kind="relationship" relationship="rootViewController" id="wqf-qA-lLi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dDB-gO-xgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="518" y="502"/>
+        </scene>
+        <!--프로필-->
+        <scene sceneID="qi5-l8-7un">
+            <objects>
+                <viewController id="lQy-0Q-7Qp" customClass="ProfileViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eII-FZ-iKX"/>
+                        <viewControllerLayoutGuide type="bottom" id="D8W-dq-bv2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lca-uN-6x1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="프로필" id="nA9-aK-HR8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IE8-jO-Iv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1279" y="502"/>
         </scene>
     </scenes>
 </document>
