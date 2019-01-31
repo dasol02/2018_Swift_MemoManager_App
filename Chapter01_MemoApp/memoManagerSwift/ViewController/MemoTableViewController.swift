@@ -6,6 +6,23 @@ class MemoTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 사이드바 라이브러리 객체 선언
+        if let revealVC = self.revealViewController(){
+            let barBtn = UIBarButtonItem()
+            barBtn.image = UIImage(named: "sidemenu.png")
+            
+            // 이벤트 연결
+            barBtn.target = revealVC
+            barBtn.action = #selector(revealVC.revealToggle(_:))
+            
+            // 버튼 추가
+            self.navigationItem.leftBarButtonItem = barBtn
+            
+            // 제스처 추가
+            self.view.addGestureRecognizer(revealVC.panGestureRecognizer())
+        }
+        
     }
     
     // 화면이 돌아왔을때 테이블뷰의 데이터를 갱신한다.

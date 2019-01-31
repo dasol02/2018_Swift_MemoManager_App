@@ -23,6 +23,21 @@
 		16F088C9218AD8D800AFB29F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16F088C8218AD8D800AFB29F /* Assets.xcassets */; };
 		16F088CC218AD8D800AFB29F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F088CA218AD8D800AFB29F /* LaunchScreen.storyboard */; };
 		16F088D7218AD8D900AFB29F /* memoManagerSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F088D6218AD8D900AFB29F /* memoManagerSwiftTests.swift */; };
+		16FCFDE421FF0A3E00E653D1 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FCFDE321FF0A3E00E653D1 /* SWRevealViewController.m */; };
+		16FCFDEF21FF0A8700E653D1 /* icon02.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDE521FF0A8700E653D1 /* icon02.png */; };
+		16FCFDF021FF0A8700E653D1 /* account@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDE621FF0A8700E653D1 /* account@2x.jpg */; };
+		16FCFDF121FF0A8700E653D1 /* button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDE721FF0A8700E653D1 /* button-bg.png */; };
+		16FCFDF221FF0A8700E653D1 /* icon05.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDE821FF0A8700E653D1 /* icon05.png */; };
+		16FCFDF321FF0A8700E653D1 /* memo-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDE921FF0A8700E653D1 /* memo-background@2x.png */; };
+		16FCFDF421FF0A8700E653D1 /* fountainpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDEA21FF0A8700E653D1 /* fountainpen@2x.png */; };
+		16FCFDF521FF0A8700E653D1 /* icon03.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDEB21FF0A8700E653D1 /* icon03.png */; };
+		16FCFDF621FF0A8700E653D1 /* icon06.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDEC21FF0A8700E653D1 /* icon06.png */; };
+		16FCFDF721FF0A8700E653D1 /* icon01.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDED21FF0A8700E653D1 /* icon01.png */; };
+		16FCFDF821FF0A8700E653D1 /* icon04.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDEE21FF0A8700E653D1 /* icon04.png */; };
+		16FCFDFC21FF0A8F00E653D1 /* sidemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDF921FF0A8E00E653D1 /* sidemenu.png */; };
+		16FCFDFD21FF0A8F00E653D1 /* warning-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDFA21FF0A8E00E653D1 /* warning-icon-60@2x.png */; };
+		16FCFDFE21FF0A8F00E653D1 /* profile-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 16FCFDFB21FF0A8F00E653D1 /* profile-bg.png */; };
+		16FCFE0021FF0C6900E653D1 /* SideBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FCFDFF21FF0C6900E653D1 /* SideBarTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +71,23 @@
 		16F088D2218AD8D900AFB29F /* memoManagerSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memoManagerSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16F088D6218AD8D900AFB29F /* memoManagerSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memoManagerSwiftTests.swift; sourceTree = "<group>"; };
 		16F088D8218AD8D900AFB29F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16FCFDE121FF0A3D00E653D1 /* memoManagerSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memoManagerSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		16FCFDE221FF0A3E00E653D1 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		16FCFDE321FF0A3E00E653D1 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		16FCFDE521FF0A8700E653D1 /* icon02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon02.png; sourceTree = "<group>"; };
+		16FCFDE621FF0A8700E653D1 /* account@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "account@2x.jpg"; sourceTree = "<group>"; };
+		16FCFDE721FF0A8700E653D1 /* button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-bg.png"; path = "../../../../../Downloads/Swift/Swift-Practice-master/Chapter04/MyMemory/button-bg.png"; sourceTree = "<group>"; };
+		16FCFDE821FF0A8700E653D1 /* icon05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon05.png; sourceTree = "<group>"; };
+		16FCFDE921FF0A8700E653D1 /* memo-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "memo-background@2x.png"; path = "../../../../../Downloads/Swift/Swift-Practice-master/Chapter04/MyMemory/memo-background@2x.png"; sourceTree = "<group>"; };
+		16FCFDEA21FF0A8700E653D1 /* fountainpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fountainpen@2x.png"; path = "../../../../../Downloads/Swift/Swift-Practice-master/Chapter04/MyMemory/fountainpen@2x.png"; sourceTree = "<group>"; };
+		16FCFDEB21FF0A8700E653D1 /* icon03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon03.png; sourceTree = "<group>"; };
+		16FCFDEC21FF0A8700E653D1 /* icon06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon06.png; sourceTree = "<group>"; };
+		16FCFDED21FF0A8700E653D1 /* icon01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon01.png; sourceTree = "<group>"; };
+		16FCFDEE21FF0A8700E653D1 /* icon04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon04.png; sourceTree = "<group>"; };
+		16FCFDF921FF0A8E00E653D1 /* sidemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidemenu.png; sourceTree = "<group>"; };
+		16FCFDFA21FF0A8E00E653D1 /* warning-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "warning-icon-60@2x.png"; path = "../../../../../Downloads/Swift/Swift-Practice-master/Chapter04/MyMemory/warning-icon-60@2x.png"; sourceTree = "<group>"; };
+		16FCFDFB21FF0A8F00E653D1 /* profile-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-bg.png"; sourceTree = "<group>"; };
+		16FCFDFF21FF0C6900E653D1 /* SideBarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +115,7 @@
 				16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */,
 				16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */,
 				16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */,
+				16FCFDFF21FF0C6900E653D1 /* SideBarTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -114,9 +147,22 @@
 		16C3637F21FAD9F1006A601E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				16FCFDFB21FF0A8F00E653D1 /* profile-bg.png */,
+				16FCFDF921FF0A8E00E653D1 /* sidemenu.png */,
+				16FCFDFA21FF0A8E00E653D1 /* warning-icon-60@2x.png */,
 				16C3638621FADA13006A601E /* fountainpen@2x.png */,
 				16C3638121FADA0E006A601E /* button-bg.png */,
+				16FCFDEC21FF0A8700E653D1 /* icon06.png */,
 				16C3638021FADA0E006A601E /* memo-background@2x.png */,
+				16FCFDE621FF0A8700E653D1 /* account@2x.jpg */,
+				16FCFDE721FF0A8700E653D1 /* button-bg.png */,
+				16FCFDEA21FF0A8700E653D1 /* fountainpen@2x.png */,
+				16FCFDED21FF0A8700E653D1 /* icon01.png */,
+				16FCFDE521FF0A8700E653D1 /* icon02.png */,
+				16FCFDEB21FF0A8700E653D1 /* icon03.png */,
+				16FCFDEE21FF0A8700E653D1 /* icon04.png */,
+				16FCFDE821FF0A8700E653D1 /* icon05.png */,
+				16FCFDE921FF0A8700E653D1 /* memo-background@2x.png */,
 				16C3638221FADA0E006A601E /* warning-icon-60@2x.png */,
 			);
 			path = Resources;
@@ -143,6 +189,7 @@
 		16F088BD218AD8D400AFB29F /* memoManagerSwift */ = {
 			isa = PBXGroup;
 			children = (
+				16FCFDE021FF0A2D00E653D1 /* lib */,
 				16C3637F21FAD9F1006A601E /* Resources */,
 				16C3637C21FAD8C8006A601E /* Util */,
 				16ABD560219AAC7600C101F1 /* Model */,
@@ -164,6 +211,16 @@
 				16F088D8218AD8D900AFB29F /* Info.plist */,
 			);
 			path = memoManagerSwiftTests;
+			sourceTree = "<group>";
+		};
+		16FCFDE021FF0A2D00E653D1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				16FCFDE221FF0A3E00E653D1 /* SWRevealViewController.h */,
+				16FCFDE321FF0A3E00E653D1 /* SWRevealViewController.m */,
+				16FCFDE121FF0A3D00E653D1 /* memoManagerSwift-Bridging-Header.h */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +273,7 @@
 				TargetAttributes = {
 					16F088BA218AD8D400AFB29F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1010;
 					};
 					16F088D1218AD8D900AFB29F = {
 						CreatedOnToolsVersion = 10.0;
@@ -247,12 +305,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16FCFDEF21FF0A8700E653D1 /* icon02.png in Resources */,
+				16FCFDFD21FF0A8F00E653D1 /* warning-icon-60@2x.png in Resources */,
 				16F088CC218AD8D800AFB29F /* LaunchScreen.storyboard in Resources */,
 				16C3638721FADA13006A601E /* fountainpen@2x.png in Resources */,
+				16FCFDFE21FF0A8F00E653D1 /* profile-bg.png in Resources */,
+				16FCFDFC21FF0A8F00E653D1 /* sidemenu.png in Resources */,
+				16FCFDF221FF0A8700E653D1 /* icon05.png in Resources */,
 				16C3638421FADA0E006A601E /* button-bg.png in Resources */,
 				16F088C9218AD8D800AFB29F /* Assets.xcassets in Resources */,
 				16C3638321FADA0E006A601E /* memo-background@2x.png in Resources */,
+				16FCFDF721FF0A8700E653D1 /* icon01.png in Resources */,
+				16FCFDF121FF0A8700E653D1 /* button-bg.png in Resources */,
+				16FCFDF021FF0A8700E653D1 /* account@2x.jpg in Resources */,
+				16FCFDF821FF0A8700E653D1 /* icon04.png in Resources */,
+				16FCFDF621FF0A8700E653D1 /* icon06.png in Resources */,
+				16FCFDF521FF0A8700E653D1 /* icon03.png in Resources */,
+				16FCFDF421FF0A8700E653D1 /* fountainpen@2x.png in Resources */,
 				16C3638521FADA0E006A601E /* warning-icon-60@2x.png in Resources */,
+				16FCFDF321FF0A8700E653D1 /* memo-background@2x.png in Resources */,
 				16F088C4218AD8D400AFB29F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +346,9 @@
 				16ABD559219AAB9F00C101F1 /* MemoFormViewController.swift in Sources */,
 				16ABD55F219AAC0B00C101F1 /* MemoTableViewCell.swift in Sources */,
 				16F088C7218AD8D400AFB29F /* memoManagerSwift.xcdatamodeld in Sources */,
+				16FCFE0021FF0C6900E653D1 /* SideBarTableViewController.swift in Sources */,
 				16ABD562219AAC9600C101F1 /* MemoData.swift in Sources */,
+				16FCFDE421FF0A3E00E653D1 /* SWRevealViewController.m in Sources */,
 				16ABD55B219AABA800C101F1 /* MemoReadViewController.swift in Sources */,
 				16F088BF218AD8D400AFB29F /* AppDelegate.swift in Sources */,
 				16ABD557219AAB8000C101F1 /* MemoTableViewController.swift in Sources */,
@@ -440,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299TQXJ7S5;
 				INFOPLIST_FILE = memoManagerSwift/Info.plist;
@@ -449,6 +523,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaeasoft.memoManagerSwift.memoManagerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "memoManagerSwift/lib/memoManagerSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,6 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299TQXJ7S5;
 				INFOPLIST_FILE = memoManagerSwift/Info.plist;
@@ -467,6 +544,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaeasoft.memoManagerSwift.memoManagerSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "memoManagerSwift/lib/memoManagerSwift-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

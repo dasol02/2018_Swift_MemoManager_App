@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8ng-kd-q1M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Td0-EQ-rZZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Reveal View Controller-->
+        <scene sceneID="tMt-Nr-hC9">
+            <objects>
+                <viewController id="Td0-EQ-rZZ" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4AF-QU-baM"/>
+                        <viewControllerLayoutGuide type="bottom" id="tzr-hK-DwL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dT7-UN-J5A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <segue destination="8ng-kd-q1M" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="HrH-7B-Yu4"/>
+                        <segue destination="u3H-og-X6H" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="P21-HE-tGt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S8R-0m-ULg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1990" y="-237"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2J8-rn-O5l">
             <objects>
@@ -22,7 +44,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEb-od-ehP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="-237"/>
+            <point key="canvasLocation" x="-1082" y="-237"/>
         </scene>
         <!--목록-->
         <scene sceneID="YDl-mq-HV9">
@@ -177,12 +199,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ef4-wz-kJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228" y="-237.03148425787109"/>
+            <point key="canvasLocation" x="-228" y="-237"/>
         </scene>
         <!--메모작성-->
         <scene sceneID="MJ8-Z6-LyN">
             <objects>
-                <viewController title="메모작성" id="0nU-Rk-AgV" customClass="MemoFormViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoForm" title="메모작성" id="0nU-Rk-AgV" customClass="MemoFormViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L9c-TN-gV5"/>
                         <viewControllerLayoutGuide type="bottom" id="NxO-ni-qml"/>
@@ -236,6 +258,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JX-OQ-mtN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="517.60000000000002" y="-237.03148425787109"/>
+        </scene>
+        <!--Side Bar Table View Controller-->
+        <scene sceneID="iM6-4J-vnN">
+            <objects>
+                <tableViewController id="u3H-og-X6H" customClass="SideBarTableViewController" customModule="memoManagerSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wH1-3f-grZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gDc-bl-DUb">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gDc-bl-DUb" id="Si1-bk-rh4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u3H-og-X6H" id="jCQ-Gq-USx"/>
+                            <outlet property="delegate" destination="u3H-og-X6H" id="aAu-nU-Zf5"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="twt-uq-9rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1990" y="566"/>
         </scene>
         <!--상세화면-->
         <scene sceneID="bDZ-2j-y7u">
