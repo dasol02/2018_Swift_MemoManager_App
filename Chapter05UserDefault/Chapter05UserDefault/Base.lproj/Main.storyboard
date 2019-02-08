@@ -28,13 +28,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5q-GE-Zel">
-                                                    <rect key="frame" x="16" y="11" width="29.5" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="29.5" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-2W-j1n">
-                                                    <rect key="frame" x="310.5" y="0.0" width="44.5" height="43.5"/>
+                                                    <rect key="frame" x="310.5" y="0.0" width="44.5" height="49.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,13 +58,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUR-Jm-zKb">
-                                                    <rect key="frame" x="16" y="11" width="29.5" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="29.5" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pde-qv-3r3">
-                                                    <rect key="frame" x="302" y="10" width="53" height="24.5"/>
+                                                    <rect key="frame" x="302" y="10" width="53" height="30.5"/>
                                                     <segments>
                                                         <segment title="남"/>
                                                         <segment title="여"/>
@@ -92,13 +92,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결혼여부" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCG-rd-kfX">
-                                                    <rect key="frame" x="16" y="11" width="59" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="59" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-WX-aog">
-                                                    <rect key="frame" x="306" y="10" width="51" height="23.5"/>
+                                                    <rect key="frame" x="306" y="10" width="51" height="29.5"/>
                                                     <connections>
                                                         <action selector="changeMarried:" destination="Ob6-pR-WxG" eventType="valueChanged" id="Qie-rp-Q9F"/>
                                                     </connections>
