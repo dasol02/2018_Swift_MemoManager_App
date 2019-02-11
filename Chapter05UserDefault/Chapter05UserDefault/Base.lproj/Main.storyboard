@@ -33,11 +33,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-2W-j1n">
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="홍길동" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-2W-j1n">
                                                     <rect key="frame" x="310.5" y="0.0" width="44.5" height="49.5"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="h02-AL-hQ7" appends="YES" id="4jv-ee-qDZ"/>
+                                                    </connections>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -130,6 +134,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="voL-vo-P4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="h02-AL-hQ7">
+                    <connections>
+                        <action selector="edit:" destination="Ob6-pR-WxG" id="ULL-Ze-BqS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="393" y="134"/>
         </scene>
