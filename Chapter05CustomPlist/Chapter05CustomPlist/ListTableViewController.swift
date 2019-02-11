@@ -8,19 +8,19 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var account: UITextField! // 계정정보
     
     
-    // Piker Info 정의
+    // Piker Info 정의 (DUMMY)
     var accontList = ["qulpro@naver.com",
                       "webmaster@rubypaper.co.kr",
                       "abc1@gmail.com",
                       "abc2gmail.com",
                       "abc3gmail.com",]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let picker = UIPickerView()
-        picker.delegate = self
-        self.account.inputView = picker
+        // 피커뷰 생성
+        self.initPickerView()
         
         // 초기화면 생성시 저장되어 있는 값 출력
         let plist = UserDefaults.standard
@@ -28,12 +28,51 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             self.name.text = name
         }
         
+
+        
         self.gender.selectedSegmentIndex = plist.integer(forKey: "gender")
         self.married.isOn = plist.bool(forKey: "married")
         
     }
     
+    
     // MARK: Action Method
+    
+    // 피커뷰 New 버튼 클릭 (계정 추가)
+    @objc func addNewAcction(_ sender: Any){
+        
+        self.view.endEditing(true)
+        
+        let alert = UIAlertController(title: "새 계정을 입력하세요", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        // 입력폼 추가
+        alert.addTextField { (textField) in
+            textField.placeholder = "ex) abc@gmail.com"
+        }
+        
+        // 버튼 및 액션 정의
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+            
+            // 텍스트 필드 내용 있을 경우
+            if let account = alert.textFields?[0].text{
+                
+                // 리스트추가 및 계정 내용 입력
+                self.accontList.append(account)
+                self.account.text = account
+            }
+            
+        }))
+        
+        self.present(alert, animated: false, completion: nil)
+        
+    }
+    
+    // 피커뷰 Done버튼 클릭시
+    @objc func pickerDone(){
+        self.view.endEditing(true)
+    }
+    
+
     @IBAction func changeGender(_ sender: UISegmentedControl) {
         let value = sender.selectedSegmentIndex // 0이면 남자, 1이면 여자
         
@@ -92,7 +131,8 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         self.account.text = accountSting
         
         // 피커뷰 종료
-        self.view.endEditing(true)
+        // self.view.endEditing(true)
+        // 피커뷰 스크롤 종료시 이벤트 호출로 인한 메서드 주석처리
     }
     
    
@@ -109,6 +149,42 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     
     // MARK: PRIVATE
+    
+    // 피커뷰 및 툴바 생성
+    private func initPickerView(){
+        // 피커뷰 생성
+        let picker = UIPickerView()
+        picker.delegate = self
+        self.account.inputView = picker
+        
+        // 액세서리 생성
+        let toolbar = UIToolbar()
+        toolbar.frame = CGRect(x: 0, y: 0, width: 0, height: 35)
+        toolbar.barTintColor = UIColor.lightGray
+        
+        // 텍스트필드 입력창 액세서리 추가
+        self.account.inputAccessoryView = toolbar
+        
+        // 바버튼 아이템 생성
+        let barButton = UIBarButtonItem()
+        barButton.title = "Done"
+        barButton.target = self
+        barButton.action = #selector(pickerDone)
+        
+        // 좌측여백 생성
+        let flexSoace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        
+        // 새로운 계정 생성 버튼
+        let new = UIBarButtonItem()
+        new.title = "New"
+        new.target = self
+        new.action = #selector(addNewAcction(_:))
+        
+        // 툴바에 버튼 추가
+        toolbar.setItems([new,flexSoace,barButton], animated: true)
+    }
+    
     // 이름 필드 입력
     private func nameEdit(){
         let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: UIAlertController.Style.alert)
