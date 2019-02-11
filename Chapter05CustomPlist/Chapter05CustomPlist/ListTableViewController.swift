@@ -7,6 +7,8 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBOutlet weak var married: UISwitch!
     @IBOutlet weak var account: UITextField! // 계정정보
     
+    var defaultPlist : NSDictionary!
+    
     
     // Piker Info 정의 (DUMMY)
     var accontList = [String]()
@@ -14,6 +16,10 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let defaultPlistPath = Bundle.main.path(forResource: "UserInfo", ofType: "plist"){
+            self.defaultPlist = NSDictionary(contentsOfFile: defaultPlistPath)
+        }
         
         // 피커뷰 생성
         self.initPickerView()
@@ -138,7 +144,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let path = paths[0] as NSString
         let plist = path.strings(byAppendingPaths: [customPlist]).first!
-        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPlist)
         
         data.setValue(value, forKey: "gender")
         data.write(toFile: plist, atomically: true)
@@ -165,7 +171,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)   // 앱내 생성 디렉터리 경로 읽음
         let path = paths[0] as NSString
         let plist = path.strings(byAppendingPaths: [customPlist]).first!  // 1과 2에서 생성된 값을 합처 프로퍼티 파일 읽음
-        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary() // 딕셔너리 객체로 변환
+        let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPlist) // 딕셔너리 객체로 변환
         data.setValue(value, forKey: "married") // 값 저장
         data.write(toFile: plist, atomically: true)  // 프로퍼티 파일로 저장
         
@@ -300,7 +306,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
             let path = paths[0] as NSString
             let plist = path.strings(byAppendingPaths: [customPlist]).first!
-            let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary()
+            let data = NSMutableDictionary(contentsOfFile: plist) ?? NSMutableDictionary(dictionary: self.defaultPlist)
             
             data.setValue(value, forKey: "name")
             data.write(toFile: plist, atomically: true)

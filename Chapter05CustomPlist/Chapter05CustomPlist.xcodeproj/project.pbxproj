@@ -13,6 +13,7 @@
 		1698F5B622112FE300CEF7BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F5B422112FE300CEF7BB /* LaunchScreen.storyboard */; };
 		1698F5C122112FE300CEF7BB /* Chapter05CustomPlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5C022112FE300CEF7BB /* Chapter05CustomPlistTests.swift */; };
 		1698F5CC2211305300CEF7BB /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5CB2211305300CEF7BB /* ListTableViewController.swift */; };
+		1698F5CE22115DD600CEF7BB /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1698F5CD22115DD600CEF7BB /* UserInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		1698F5C022112FE300CEF7BB /* Chapter05CustomPlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter05CustomPlistTests.swift; sourceTree = "<group>"; };
 		1698F5C222112FE300CEF7BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1698F5CB2211305300CEF7BB /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		1698F5CD22115DD600CEF7BB /* UserInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				1698F5B222112FE300CEF7BB /* Assets.xcassets */,
 				1698F5B422112FE300CEF7BB /* LaunchScreen.storyboard */,
 				1698F5B722112FE300CEF7BB /* Info.plist */,
+				1698F5CD22115DD600CEF7BB /* UserInfo.plist */,
 			);
 			path = Chapter05CustomPlist;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				1698F5B622112FE300CEF7BB /* LaunchScreen.storyboard in Resources */,
 				1698F5B322112FE300CEF7BB /* Assets.xcassets in Resources */,
 				1698F5B122112FE100CEF7BB /* Main.storyboard in Resources */,
+				1698F5CE22115DD600CEF7BB /* UserInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
