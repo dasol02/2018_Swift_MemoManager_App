@@ -43,6 +43,16 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             
         }
         
+        
+        if(self.account.text?.isEmpty)! {
+            self.account.placeholder = "등록된 계정이 없습니다."
+            self.gender.isEnabled = false
+            self.married.isEnabled = false
+        }
+        
+        let addBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addNewAcction(_:)))
+        self.navigationItem.rightBarButtonItems = [addBtn]
+        
     }
     
     
@@ -81,6 +91,9 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
                 plist.set(self.accontList, forKey:"accountList")
                 plist.set(account, forKey:"selectedAccount")
                 plist.synchronize()
+                
+                self.gender.isEnabled = true
+                self.married.isEnabled = true
             }
             
         }))
@@ -171,8 +184,11 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     // 이름 필드 선택시
     @IBAction func edit(_ sender: UITapGestureRecognizer) {
-        // 이름 수정
-        self.nameEdit()
+        
+        if !(self.account.text?.isEmpty)! {
+            // 이름 수정
+            self.nameEdit()
+        }
     }
     
     
@@ -216,7 +232,7 @@ class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     // Super 오버라이드
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 1 { // 첫번쨰 셀이 클릭 되었을 때에만
+        if indexPath.row == 1 && (self.account.text?.isEmpty)! == false { // 첫번쨰 셀이 클릭 되었을 때에만
             self.nameEdit() // 이름 수정
         }
     }
