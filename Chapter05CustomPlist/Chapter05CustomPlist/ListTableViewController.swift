@@ -1,20 +1,26 @@
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class ListTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var gender: UISegmentedControl!
     @IBOutlet weak var married: UISwitch!
     @IBOutlet weak var account: UITextField! // 계정정보
     
-    // 이름 필드 선택시
-    @IBAction func edit(_ sender: UITapGestureRecognizer) {
-        // 이름 수정
-        self.nameEdit()
-    }
+    
+    // Piker Info 정의
+    var accontList = ["qulpro@naver.com",
+                      "webmaster@rubypaper.co.kr",
+                      "abc1@gmail.com",
+                      "abc2gmail.com",
+                      "abc3gmail.com",]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let picker = UIPickerView()
+        picker.delegate = self
+        self.account.inputView = picker
         
         // 초기화면 생성시 저장되어 있는 값 출력
         let plist = UserDefaults.standard
@@ -55,7 +61,45 @@ class ListTableViewController: UITableViewController {
     }
     
     
+    // 이름 필드 선택시
+    @IBAction func edit(_ sender: UITapGestureRecognizer) {
+        // 이름 수정
+        self.nameEdit()
+    }
+    
+    
+    // MARK: UIPickerView DataSource
+    // 컴포넌트의 개수
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    
+    // 컴포넌트의 목록 길이
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.accontList.count;
+    }
+    
+    // 컴포넌트의 목록의 해당 내용
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.accontList[row]
+    }
+    
+    // 컴포넌트의 클릭시 이벤트
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        // 피커뷰 내용 텍스트필드에 입력
+        let accountSting = self.accontList[row]
+        self.account.text = accountSting
+        
+        // 피커뷰 종료
+        self.view.endEditing(true)
+    }
+    
+   
+    
+    
     // MARK : TableView DataSource
+    // Super 오버라이드
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 { // 첫번쨰 셀이 클릭 되었을 때에만
@@ -64,8 +108,9 @@ class ListTableViewController: UITableViewController {
     }
     
     
+    // MARK: PRIVATE
     // 이름 필드 입력
-    func nameEdit(){
+    private func nameEdit(){
         let alert = UIAlertController(title: nil, message: "이름을 입력하세요", preferredStyle: UIAlertController.Style.alert)
         
         // 입력 필드 추가
@@ -91,6 +136,4 @@ class ListTableViewController: UITableViewController {
         self.present(alert, animated: false, completion: nil)
     }
 
-    // MARK: - Table view data source
-    // Super 오버라이드
 }
