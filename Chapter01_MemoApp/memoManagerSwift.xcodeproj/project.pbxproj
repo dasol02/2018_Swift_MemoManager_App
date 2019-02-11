@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1610BA7D2202932A00B42C51 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1610BA7C2202932A00B42C51 /* ProfileViewController.swift */; };
+		1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5CF2211643000CEF7BB /* UserInfoManager.swift */; };
 		16ABD557219AAB8000C101F1 /* MemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */; };
 		16ABD559219AAB9F00C101F1 /* MemoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */; };
 		16ABD55B219AABA800C101F1 /* MemoReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1610BA7C2202932A00B42C51 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1698F5CF2211643000CEF7BB /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewController.swift; sourceTree = "<group>"; };
 		16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFormViewController.swift; sourceTree = "<group>"; };
 		16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoReadViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				16C3637D21FAD8DF006A601E /* CSLogButton.swift */,
+				1698F5CF2211643000CEF7BB /* UserInfoManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			files = (
 				16C3637E21FAD8DF006A601E /* CSLogButton.swift in Sources */,
 				16ABD559219AAB9F00C101F1 /* MemoFormViewController.swift in Sources */,
+				1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */,
 				16ABD55F219AAC0B00C101F1 /* MemoTableViewCell.swift in Sources */,
 				16F088C7218AD8D400AFB29F /* memoManagerSwift.xcdatamodeld in Sources */,
 				16FCFE0021FF0C6900E653D1 /* SideBarTableViewController.swift in Sources */,
