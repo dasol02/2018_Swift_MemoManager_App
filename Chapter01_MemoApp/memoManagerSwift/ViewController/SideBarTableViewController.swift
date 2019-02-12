@@ -2,6 +2,8 @@ import UIKit
 
 class SideBarTableViewController: UITableViewController {
     
+    let uinfo = UserInfoManager()
+    
     let nameLabel = UILabel()
     let emailLabel = UILabel()
     let profileImage = UIImageView()
@@ -26,7 +28,7 @@ class SideBarTableViewController: UITableViewController {
         
         // 이름 라벨 생성
         self.nameLabel.frame = CGRect(x: 70, y: 15, width: 100, height: 30)
-        self.nameLabel.text = "꼼꼼이"
+//        self.nameLabel.text = "꼼꼼이"
         self.nameLabel.textColor = UIColor.white
         self.nameLabel.font = UIFont.boldSystemFont(ofSize: 15)
         self.nameLabel.backgroundColor = UIColor.clear
@@ -35,7 +37,7 @@ class SideBarTableViewController: UITableViewController {
         
         // 이메일 생성
         self.emailLabel.frame = CGRect(x: 70, y: 30, width: 100, height: 30)
-        self.emailLabel.text = "123@gmail.com"
+//        self.emailLabel.text = "123@gmail.com"
         self.emailLabel.textColor = UIColor.white
         self.emailLabel.font = UIFont.boldSystemFont(ofSize: 11)
         self.emailLabel.backgroundColor = UIColor.clear
@@ -43,8 +45,8 @@ class SideBarTableViewController: UITableViewController {
         headerView.addSubview(self.emailLabel)
         
         //기본 이미지 생성
-        let defaultProfile = UIImage(named: "account.jpg")
-        self.profileImage.image = defaultProfile
+//        let defaultProfile = UIImage(named: "account.jpg")
+//        self.profileImage.image = defaultProfile
         self.profileImage.frame = CGRect(x: 10, y: 10, width: 50, height: 50)
         
         self.profileImage.layer.cornerRadius = (self.profileImage.frame.width/2)
@@ -55,6 +57,13 @@ class SideBarTableViewController: UITableViewController {
         
         self.tableView.tableHeaderView = headerView
 
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.nameLabel.text = self.uinfo.name ?? "Guest"
+        self.emailLabel.text = self.uinfo.account ?? ""
+        self.profileImage.image = self.uinfo.profile
     }
 
     // MARK: - Table view data source
