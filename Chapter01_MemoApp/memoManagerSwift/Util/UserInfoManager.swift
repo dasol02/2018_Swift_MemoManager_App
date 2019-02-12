@@ -82,8 +82,8 @@ class UserInfoManager{
         if inputAccount == "sqlpro@naver.com" && passwd == "1234" {
             let ud = UserDefaults.standard
             ud.set(100, forKey: UserInfoKey.loginID)
-            ud.set(account, forKey: UserInfoKey.account)
-            ud.set("재은 씨", forKey: UserInfoKey.name)
+            ud.set(inputAccount, forKey: UserInfoKey.account)
+            ud.set("꼼꼼한 재은 씨", forKey: UserInfoKey.name)
             ud.synchronize()
             return true
         }else{

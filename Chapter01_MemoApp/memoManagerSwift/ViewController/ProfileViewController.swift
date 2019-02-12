@@ -2,6 +2,8 @@ import UIKit
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let uinfo = UserInfoManager() // 개인 정보 관리 매니저
+    
     let profileImage = UIImageView()
     let tv = UITableView()
 
@@ -16,7 +18,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         // 프로필 사진에 들어갈 기본 이미지
-        let image = UIImage(named: "account.jpg")
+//        let image = UIImage(named: "account.jpg")
+        let image = self.uinfo.profile
         
         // 프로필 이미지 처리
         self.profileImage.image = image
@@ -53,13 +56,102 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tv.delegate = self
         
         self.view.addSubview(self.tv)
+        
+        self.drawBtn()
 
     }
+    
+    // 로그인 얼럿창 생성
+    @objc func doLogin(_ sender: Any){
+        let loginAlert = UIAlertController(title: "Login", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        // 알림창에 들어갈 입력폼 추가
+        loginAlert.addTextField { (textField) in
+            textField.placeholder = "Your Account"
+        }
+        loginAlert.addTextField { (textField) in
+            textField.placeholder = "Password"
+            textField.isSecureTextEntry = true
+        }
+        
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        loginAlert.addAction(UIAlertAction(title: "Login", style: UIAlertAction.Style.destructive, handler: { (loginalert) in
+            
+            let account = loginAlert.textFields?[0].text ?? ""
+            let passwd = loginAlert.textFields?[1].text ?? ""
+            
+            if self.uinfo.login(inputAccount: account, passwd: passwd){
+                // 로그인 성공
+                self.tv.reloadData()
+                self.profileImage.image = self.uinfo.profile
+                self.drawBtn()
+            }else{
+                let msg = "로그인에 실패하였습니다."
+                let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
+                self.present(alert, animated: false, completion: nil)
+            }
+            
+        }))
+        
+        self.present(loginAlert, animated: false, completion: nil)
+        
+    }
+    
+    // 로그아웃
+    @objc func doLogout(_ sender: Any){
+        let msg = "로그아웃하시겠습니까?"        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.destructive, handler: { (alert) in
+            if self.uinfo.logout() {
+                // 로그아웃 성공
+                self.tv.reloadData()
+                self.profileImage.image = self.uinfo.profile
+                self.drawBtn()
+            }
+        }))
+        
+        self.present(alert, animated: false, completion: nil)
+    }
+    
     
     
     // 현재 화면 종료
     @objc func close(_ sender: Any){
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    // 로그인 or 로그아웃 버튼 추가
+    func drawBtn(){
+        // 배경 뷰 생성
+        let v = UIView()
+        v.frame.size.width = self.view.frame.width
+        v.frame.size.height = 40
+        v.frame.origin.x = 0
+        v.frame.origin.y = self.tv.frame.origin.y + self.tv.frame.height
+        v.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1.0)
+        
+        self.view.addSubview(v)
+        
+        // 버튼 생성
+        let btn = UIButton(type: UIButton.ButtonType.system)
+        btn.frame.size.width = 100
+        btn.frame.size.height = 30
+        btn.center.x = v.frame.size.width / 2
+        btn.center.y = v.frame.size.height / 2
+        
+        
+        // 로그인 유무에 따라 버튼 텍스트 및 이벤트 처리
+        if self.uinfo.isLogin == true {
+            btn.setTitle("로그아웃", for: UIControl.State.normal)
+            btn.addTarget(self, action: #selector(doLogout(_:)), for: UIControl.Event.touchUpInside)
+        }else{
+            btn.setTitle("로그인", for: UIControl.State.normal)
+            btn.addTarget(self, action: #selector(doLogin(_:)), for: UIControl.Event.touchUpInside)
+        }
+        v.addSubview(btn)
+        
     }
     
     // MARK: TableView Data Source
@@ -78,17 +170,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "이름"
-            cell.detailTextLabel?.text = "꼼꼼한재은 씨"
+//            cell.detailTextLabel?.text = "꼼꼼한재은 씨"
+            cell.detailTextLabel?.text = self.uinfo.name ?? "Login Please"
             break
         case 1:
             cell.textLabel?.text = "계정"
-            cell.detailTextLabel?.text = "123@gamil.com"
+//            cell.detailTextLabel?.text = "123@gamil.com"
+            cell.detailTextLabel?.text = self.uinfo.name ?? "Login Plase"
             break
         default:
             ()
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.uinfo.isLogin == false {
+            self.doLogin(self.tv)
+        }
     }
 
 }

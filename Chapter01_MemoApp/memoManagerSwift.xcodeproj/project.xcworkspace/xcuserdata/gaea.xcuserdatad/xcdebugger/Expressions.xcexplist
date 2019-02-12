@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "UserInfoManager.login(inputAccount:passwd:):UserInfoManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.string(forKey: UserInfoKey.account)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserInfoManager.loginID.getter:UserInfoManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.integer(forKey: UserInfoKey.loginID)">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaults.standard.string(forKey: UserInfoKey.account)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
