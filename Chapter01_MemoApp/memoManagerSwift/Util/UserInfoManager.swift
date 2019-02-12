@@ -70,7 +70,7 @@ class UserInfoManager{
         set (v) {
             if v != nil {
                 let ud = UserDefaults.standard
-                ud.set(UIImage.pngData(v!), forKey: UserInfoKey.profile)
+                ud.set(v?.pngData(), forKey: UserInfoKey.profile)
                 ud.synchronize()
             }
         }

@@ -1,6 +1,6 @@
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
     
@@ -57,7 +57,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.view.addSubview(self.tv)
         
+        // 로그인 or 로그아웃 버튼 생성
         self.drawBtn()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
+        self.profileImage.addGestureRecognizer(tap)
+        self.profileImage.isUserInteractionEnabled = true
 
     }
     
@@ -100,7 +105,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // 로그아웃
     @objc func doLogout(_ sender: Any){
-        let msg = "로그아웃하시겠습니까?"        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertController.Style.alert)
+        let msg = "로그아웃하시겠습니까?"
+        let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.destructive, handler: { (alert) in
@@ -190,5 +196,63 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.doLogin(self.tv)
         }
     }
-
+    
+    // MARK: UIImage Picker
+    func imgPicker( _ source: UIImagePickerController.SourceType){
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    // 프로필 사진 선택 메서드
+    @objc func profile(_ sender: UIButton){
+        
+        // 미로그인시 로그인창 제공
+        guard self.uinfo.account != nil else {
+            self.doLogin(self)
+            return
+        }
+        
+        let alert = UIAlertController(title: nil, message: "사진을 가져올 곳을 선택해 주세요", preferredStyle: UIAlertController.Style.actionSheet)
+        
+        // 카메라
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
+            alert.addAction(UIAlertAction(title: "카메라", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                self.imgPicker(UIImagePickerController.SourceType.camera)
+            }))
+        }
+        
+        // 저장 앨범
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum){
+            alert.addAction(UIAlertAction(title: "저장된 앨범", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                self.imgPicker(UIImagePickerController.SourceType.savedPhotosAlbum)
+            }))
+        }
+        
+        // 포토 라이브러리
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+            alert.addAction(UIAlertAction(title: "포토 라이브러리", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+                self.imgPicker(UIImagePickerController.SourceType.photoLibrary)
+            }))
+        }
+        
+        //취소 버튼
+        alert.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        
+        self.present(alert, animated: false, completion: nil)
+    }
+    
+    // 이미지 선택시 호출
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.uinfo.profile = img
+            self.profileImage.image = img
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
