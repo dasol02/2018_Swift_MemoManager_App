@@ -27,6 +27,14 @@ class MemoTableViewController: UITableViewController {
     
     // 화면이 돌아왔을때 테이블뷰의 데이터를 갱신한다.
     override func viewWillAppear(_ animated: Bool) {
+        
+        let ud = UserDefaults.standard
+        if ud.bool(forKey: UserInfoKey.tutorial) == false {
+            let vc = self.instanceTutorialVC(name: "MasterVC")
+            self.present(vc!, animated: true, completion: nil)
+            return
+        }
+        
         self.tableView.reloadData()
     }
 

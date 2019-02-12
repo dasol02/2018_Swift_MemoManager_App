@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1610BA7D2202932A00B42C51 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1610BA7C2202932A00B42C51 /* ProfileViewController.swift */; };
 		1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5CF2211643000CEF7BB /* UserInfoManager.swift */; };
+		1698F5D22212809E00CEF7BB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F5D12212809E00CEF7BB /* Tutorial.storyboard */; };
+		1698F5D42212839700CEF7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5D32212839700CEF7BB /* Utils.swift */; };
+		1698F5D72212851600CEF7BB /* TutorialContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5D62212851600CEF7BB /* TutorialContentsViewController.swift */; };
+		1698F5D92212869000CEF7BB /* TutorialMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5D82212869000CEF7BB /* TutorialMasterViewController.swift */; };
 		16ABD557219AAB8000C101F1 /* MemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */; };
 		16ABD559219AAB9F00C101F1 /* MemoFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */; };
 		16ABD55B219AABA800C101F1 /* MemoReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */; };
@@ -51,6 +55,10 @@
 /* Begin PBXFileReference section */
 		1610BA7C2202932A00B42C51 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1698F5CF2211643000CEF7BB /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
+		1698F5D12212809E00CEF7BB /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		1698F5D32212839700CEF7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1698F5D62212851600CEF7BB /* TutorialContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsViewController.swift; sourceTree = "<group>"; };
+		1698F5D82212869000CEF7BB /* TutorialMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMasterViewController.swift; sourceTree = "<group>"; };
 		16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewController.swift; sourceTree = "<group>"; };
 		16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoFormViewController.swift; sourceTree = "<group>"; };
 		16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoReadViewController.swift; sourceTree = "<group>"; };
@@ -104,9 +112,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1698F5D5221284F200CEF7BB /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1698F5D62212851600CEF7BB /* TutorialContentsViewController.swift */,
+				1698F5D82212869000CEF7BB /* TutorialMasterViewController.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		16ABD55C219AABB700C101F1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1698F5D5221284F200CEF7BB /* Tutorial */,
 				16ABD55D219AABF200C101F1 /* MemoCell */,
 				16ABD556219AAB8000C101F1 /* MemoTableViewController.swift */,
 				16ABD558219AAB9F00C101F1 /* MemoFormViewController.swift */,
@@ -138,6 +156,7 @@
 			children = (
 				16C3637D21FAD8DF006A601E /* CSLogButton.swift */,
 				1698F5CF2211643000CEF7BB /* UserInfoManager.swift */,
+				1698F5D32212839700CEF7BB /* Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -190,8 +209,9 @@
 				16ABD55C219AABB700C101F1 /* ViewController */,
 				16F088BE218AD8D400AFB29F /* AppDelegate.swift */,
 				16F088C2218AD8D400AFB29F /* Main.storyboard */,
-				16F088C8218AD8D800AFB29F /* Assets.xcassets */,
+				1698F5D12212809E00CEF7BB /* Tutorial.storyboard */,
 				16F088CA218AD8D800AFB29F /* LaunchScreen.storyboard */,
+				16F088C8218AD8D800AFB29F /* Assets.xcassets */,
 				16F088CD218AD8D800AFB29F /* Info.plist */,
 				16F088C5218AD8D400AFB29F /* memoManagerSwift.xcdatamodeld */,
 			);
@@ -310,6 +330,7 @@
 				16F088C9218AD8D800AFB29F /* Assets.xcassets in Resources */,
 				16C3638321FADA0E006A601E /* memo-background@2x.png in Resources */,
 				16FCFDF721FF0A8700E653D1 /* icon01.png in Resources */,
+				1698F5D22212809E00CEF7BB /* Tutorial.storyboard in Resources */,
 				16FCFDF021FF0A8700E653D1 /* account@2x.jpg in Resources */,
 				16FCFDF821FF0A8700E653D1 /* icon04.png in Resources */,
 				16FCFDF621FF0A8700E653D1 /* icon06.png in Resources */,
@@ -337,10 +358,13 @@
 				1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */,
 				16ABD55F219AAC0B00C101F1 /* MemoTableViewCell.swift in Sources */,
 				16F088C7218AD8D400AFB29F /* memoManagerSwift.xcdatamodeld in Sources */,
+				1698F5D92212869000CEF7BB /* TutorialMasterViewController.swift in Sources */,
 				16FCFE0021FF0C6900E653D1 /* SideBarTableViewController.swift in Sources */,
 				16ABD562219AAC9600C101F1 /* MemoData.swift in Sources */,
+				1698F5D42212839700CEF7BB /* Utils.swift in Sources */,
 				1610BA7D2202932A00B42C51 /* ProfileViewController.swift in Sources */,
 				16FCFDE421FF0A3E00E653D1 /* SWRevealViewController.m in Sources */,
+				1698F5D72212851600CEF7BB /* TutorialContentsViewController.swift in Sources */,
 				16ABD55B219AABA800C101F1 /* MemoReadViewController.swift in Sources */,
 				16F088BF218AD8D400AFB29F /* AppDelegate.swift in Sources */,
 				16ABD557219AAB8000C101F1 /* MemoTableViewController.swift in Sources */,

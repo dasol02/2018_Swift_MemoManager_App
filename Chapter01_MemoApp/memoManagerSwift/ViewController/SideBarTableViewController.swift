@@ -90,12 +90,12 @@ class SideBarTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 0 {
+        if titles[indexPath.row] == titles[0] {
             let uv = self.storyboard?.instantiateViewController(withIdentifier: "MemoForm")
             let target = self.revealViewController().frontViewController as! UINavigationController
             target.pushViewController(uv!, animated: true)
             self.revealViewController().revealToggle(self)
-        }else if indexPath.row == 5 {
+        }else if titles[indexPath.row] == titles[4]  {
             let uv = self.storyboard?.instantiateViewController(withIdentifier: "_Profile")
             self.present(uv!, animated: true) {
                 self.revealViewController().revealToggle(self)
