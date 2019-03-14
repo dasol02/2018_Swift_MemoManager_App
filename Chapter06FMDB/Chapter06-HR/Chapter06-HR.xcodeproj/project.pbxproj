@@ -23,6 +23,8 @@
 		165A42F6223A0C3000868551 /* EmployeeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42F5223A0C3000868551 /* EmployeeTableViewController.swift */; };
 		165A42F8223A0D6C00868551 /* hr.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 165A42F7223A0D6C00868551 /* hr.sqlite */; };
 		165A42FB223A0F3500868551 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FA223A0F3500868551 /* DepartmentDAO.swift */; };
+		165A42FD223A311400868551 /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FC223A311400868551 /* EmployeeDAO.swift */; };
+		165A42FF223A369800868551 /* DAOBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FE223A369800868551 /* DAOBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		165A42F5223A0C3000868551 /* EmployeeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewController.swift; sourceTree = "<group>"; };
 		165A42F7223A0D6C00868551 /* hr.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = hr.sqlite; sourceTree = "<group>"; };
 		165A42FA223A0F3500868551 /* DepartmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
+		165A42FC223A311400868551 /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
+		165A42FE223A369800868551 /* DAOBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +110,7 @@
 		165A42BC2239ED8500868551 /* Chapter06-HR */ = {
 			isa = PBXGroup;
 			children = (
-				165A42F9223A0F1400868551 /* Util */,
+				165A42F9223A0F1400868551 /* DAO */,
 				165A42F2223A0C0200868551 /* ViewController */,
 				165A42E02239EDC800868551 /* fmdb */,
 				165A42BD2239ED8500868551 /* AppDelegate.swift */,
@@ -165,12 +169,14 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		165A42F9223A0F1400868551 /* Util */ = {
+		165A42F9223A0F1400868551 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				165A42FE223A369800868551 /* DAOBase.swift */,
 				165A42FA223A0F3500868551 /* DepartmentDAO.swift */,
+				165A42FC223A311400868551 /* EmployeeDAO.swift */,
 			);
-			name = Util;
+			name = DAO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +230,11 @@
 					165A42B92239ED8500868551 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					165A42CD2239ED8700868551 = {
 						CreatedOnToolsVersion = 10.1;
@@ -279,6 +290,8 @@
 				165A42C02239ED8500868551 /* ViewController.swift in Sources */,
 				165A42F4223A0C1C00868551 /* DepartmentTableViewController.swift in Sources */,
 				165A42FB223A0F3500868551 /* DepartmentDAO.swift in Sources */,
+				165A42FF223A369800868551 /* DAOBase.swift in Sources */,
+				165A42FD223A311400868551 /* EmployeeDAO.swift in Sources */,
 				165A42BE2239ED8500868551 /* AppDelegate.swift in Sources */,
 				165A42F12239EDDA00868551 /* FMResultSet.m in Sources */,
 				165A42EF2239EDDA00868551 /* FMDatabasePool.m in Sources */,
