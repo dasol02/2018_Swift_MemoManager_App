@@ -7,6 +7,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let dbPath = self.getDBPath()
+        print("Database path : \(dbPath)")
         self.dbExecute(dbPath: dbPath)
        
     }
