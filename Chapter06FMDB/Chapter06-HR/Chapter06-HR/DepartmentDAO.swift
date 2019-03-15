@@ -45,8 +45,7 @@ class DepartmentDAO : DAOBase {
     
     // 단일 부서 정보 호출
     func get(departCd:Int) -> DepartRecord? {
-        
-        
+
         let sql = """
                     SELECT \(SQL_DEPART_CD), \(SQL_DEPART_TITLE), \(SQL_DEPART_ADDR)
                     FROM \(SQL_DEPART_TABLE_NAME)

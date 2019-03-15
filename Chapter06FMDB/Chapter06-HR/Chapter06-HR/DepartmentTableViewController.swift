@@ -64,17 +64,16 @@ class DepartmentTableViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
-        case 0:
-            return .delete
-        case 1:
-            return .insert
-        case 2:
-            return .none
-        default:
-            return .none
+        
+        let departCd = self.departList[indexPath.row].departCd
+        
+        let infoVC = self.storyboard?.instantiateViewController(withIdentifier: "DEPART_INFO")
+        if let _infoVC = infoVC as? DepartmentInfoTableViewController {
+            _infoVC.departCd = departCd
+            self.navigationController?.pushViewController(_infoVC, animated: true)
         }
     }
 

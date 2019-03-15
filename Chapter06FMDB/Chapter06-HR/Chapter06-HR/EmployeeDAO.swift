@@ -33,21 +33,35 @@ class EmployeeDAO : DAOBase{
     let SQL_EMPLOYEE_NAME : String = "emp_name"
     let SQL_EMPLOYEE_JOINDATE : String = "join_date"
     let SQL_EMPLOYEE_STATE_CD : String = "state_cd"
+    let SQL_EMPLOYEE_JOIN_EMPLOYEE_DEPART_CD : String = "employee.depart_cd"
     let SQL_EMPLOYEE_DEPART_CD : String = "department.depart_cd"
     let SQL_EMPLOYEE_DEPART_TITLE : String = "department.depart_title"
     
     
+//    // 검색 overload
+//    func find() -> [EmployeeVO] {
+//        return self.find(departCd: 0)
+//        
+//        // Swift 하단 func find(departCd: Int = "0") -> [EmployeeVO] {
+//        // 기본 값 설정시 오버로드 없이 설정 가능
+//    }
+
+    
     // 검색
-    func find() -> [EmployeeVO] {
+    func find(departCd: Int = 0) -> [EmployeeVO] {
         
         var employeeList = [EmployeeVO]()
         
         do {
+            // 조건 설정
+            let condition = departCd == 0 ? "" : "WHERE Employee.depart_cd = \(departCd)"
+            
             let sql = """
-            SELECT \(SQL_EMPLOYEE_CD), \(SQL_EMPLOYEE_NAME), \(SQL_EMPLOYEE_JOINDATE), \(SQL_EMPLOYEE_DEPART_TITLE)
+            SELECT \(SQL_EMPLOYEE_CD), \(SQL_EMPLOYEE_NAME), \(SQL_EMPLOYEE_JOINDATE), \(SQL_EMPLOYEE_STATE_CD), \(SQL_EMPLOYEE_DEPART_TITLE)
             FROM \(SQL_EMPLOYEE_TABLE_NAME)
-            JOIN department On \(SQL_EMPLOYEE_DEPART_CD) = \(SQL_EMPLOYEE_CD)
-            ORDER BY \(SQL_EMPLOYEE_DEPART_CD) ASC
+            JOIN department On \(SQL_EMPLOYEE_DEPART_CD) = \(SQL_EMPLOYEE_JOIN_EMPLOYEE_DEPART_CD)
+            \(condition)
+            ORDER BY \(SQL_EMPLOYEE_JOIN_EMPLOYEE_DEPART_CD) ASC
             """
             
             let rs = try self.fmdb.executeQuery(sql, values: nil)
@@ -124,6 +138,7 @@ class EmployeeDAO : DAOBase{
         }
     }
     
+    // 삭제
     func remove(empCd: Int) -> Bool {
         do {
             let sql = "DELETE FROM \(SQL_EMPLOYEE_TABLE_NAME) WHERE \(SQL_EMPLOYEE_CD) = ? "
@@ -133,7 +148,24 @@ class EmployeeDAO : DAOBase{
             NSLog("Remove Error : \(error.localizedDescription)")
             return false
         }
+    }
+    
+    func editState(empCd: Int, stateCd: EmpStateType) -> Bool {
         
+        do {
+            let sql = "UPDATE \(SQL_EMPLOYEE_TABLE_NAME) SET \(SQL_EMPLOYEE_STATE_CD) = ? WHERE \(SQL_EMPLOYEE_CD) = ?"
+            
+            var params = [Any]()
+            params.append(stateCd.rawValue)
+            params.append(empCd)
+            
+            try self.fmdb.executeUpdate(sql, values: params)
+            
+            return true
+        } catch let error as NSError {
+            print("UPDATE Error : \(error.localizedDescription)")
+            return false
+        }
     }
     
 }

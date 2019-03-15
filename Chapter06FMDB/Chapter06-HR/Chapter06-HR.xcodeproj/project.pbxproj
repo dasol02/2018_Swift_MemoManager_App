@@ -25,6 +25,8 @@
 		165A42FB223A0F3500868551 /* DepartmentDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FA223A0F3500868551 /* DepartmentDAO.swift */; };
 		165A42FD223A311400868551 /* EmployeeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FC223A311400868551 /* EmployeeDAO.swift */; };
 		165A42FF223A369800868551 /* DAOBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A42FE223A369800868551 /* DAOBase.swift */; };
+		165A4302223B42EF00868551 /* DepartPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A4301223B42EF00868551 /* DepartPickerVC.swift */; };
+		165A4304223B7A8000868551 /* DepartmentInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165A4303223B7A8000868551 /* DepartmentInfoTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		165A42FA223A0F3500868551 /* DepartmentDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentDAO.swift; sourceTree = "<group>"; };
 		165A42FC223A311400868551 /* EmployeeDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDAO.swift; sourceTree = "<group>"; };
 		165A42FE223A369800868551 /* DAOBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOBase.swift; sourceTree = "<group>"; };
+		165A4301223B42EF00868551 /* DepartPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartPickerVC.swift; sourceTree = "<group>"; };
+		165A4303223B7A8000868551 /* DepartmentInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentInfoTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 			children = (
 				165A42F3223A0C1C00868551 /* DepartmentTableViewController.swift */,
 				165A42F5223A0C3000868551 /* EmployeeTableViewController.swift */,
+				165A4301223B42EF00868551 /* DepartPickerVC.swift */,
+				165A4303223B7A8000868551 /* DepartmentInfoTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -293,8 +299,10 @@
 				165A42FF223A369800868551 /* DAOBase.swift in Sources */,
 				165A42FD223A311400868551 /* EmployeeDAO.swift in Sources */,
 				165A42BE2239ED8500868551 /* AppDelegate.swift in Sources */,
+				165A4302223B42EF00868551 /* DepartPickerVC.swift in Sources */,
 				165A42F12239EDDA00868551 /* FMResultSet.m in Sources */,
 				165A42EF2239EDDA00868551 /* FMDatabasePool.m in Sources */,
+				165A4304223B7A8000868551 /* DepartmentInfoTableViewController.swift in Sources */,
 				165A42ED2239EDDA00868551 /* FMDatabaseAdditions.m in Sources */,
 				165A42EE2239EDDA00868551 /* FMDatabase.m in Sources */,
 				165A42F6223A0C3000868551 /* EmployeeTableViewController.swift in Sources */,
