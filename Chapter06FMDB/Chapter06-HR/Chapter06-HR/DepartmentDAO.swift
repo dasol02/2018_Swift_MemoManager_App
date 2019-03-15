@@ -72,7 +72,7 @@ class DepartmentDAO : DAOBase {
     func create(title: String!, addr: String!) -> Bool {
         do {
             let sql = """
-                        INSERT INTO \(SQL_DEPART_TABLE_NAME) (\(SQL_DEPART_TITLE, SQL_DEPART_ADDR))
+                        INSERT INTO \(SQL_DEPART_TABLE_NAME) (\(SQL_DEPART_TITLE), \(SQL_DEPART_ADDR))
                         VALUES ( ? , ? )
             """
             
@@ -88,7 +88,7 @@ class DepartmentDAO : DAOBase {
     // 부서 정보 삭제
     func remove(departCd: Int) -> Bool {
         do {
-            let sql = "DELETE FROM \(SQL_DEPART_TABLE_NAME) WHERE \(SQL_DEPART_CD) = ?) "
+            let sql = "DELETE FROM \(SQL_DEPART_TABLE_NAME) WHERE \(SQL_DEPART_CD) = ? "
             try self.fmdb.executeUpdate(sql, values: [departCd])
             return true
         } catch let error as NSError {
