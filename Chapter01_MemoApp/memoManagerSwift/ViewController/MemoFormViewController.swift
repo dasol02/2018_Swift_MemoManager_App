@@ -5,6 +5,8 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var contents: UITextView!
     @IBOutlet weak var preview: UIImageView!
     
+    lazy var dao = MemoDAO()
+    
     var subject : String!           // 네비게이션 상단의 제목 타이틀
     var picker = UIImagePickerController() // 이미지 피커 인스턴스를 생성한다.
     
@@ -26,6 +28,8 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         self.contents.attributedText = NSAttributedString(string: " ", attributes: [NSAttributedString.Key.paragraphStyle : style])
         self.contents.text = ""
     }
+    
+    // MARK: - Action
     // 저장 버튼을 클릭했을 때 호출되는 메소드
     @IBAction func save(_ sender: Any) {
         
@@ -53,9 +57,12 @@ class MemoFormViewController: UIViewController, UIImagePickerControllerDelegate,
         data.image    = self.preview.image      // 이미지
         data.regdate  = Date()                  // 작성 시간
         
-        // 앱 딜리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가한다.
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memolist.append(data)
+//        // 앱 딜리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가한다.
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.memolist.append(data)
+        
+        // 코어 데이타 추가
+        self.dao.insert(data)
         
         
         // 작성폼 화면을 종료하고, 이전화면으로 되돌아 간다.

@@ -3,10 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "TutorialContentsViewController.viewDidLoad():TutorialContentsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageFile">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserInfoManager.login(inputAccount:passwd:):UserInfoManager.swift">
          <PersistentStrings>
             <PersistentString
                value = "UserDefaults.standard.string(forKey: UserInfoKey.account)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MemoTableViewController.searchBarSearchButtonClicked(_:):MemoTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.appDelegate.memolist">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -18,14 +34,6 @@
             </PersistentString>
             <PersistentString
                value = "UserDefaults.standard.string(forKey: UserInfoKey.account)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TutorialContentsViewController.viewDidLoad():TutorialContentsViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.imageFile">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -1,11 +1,15 @@
 import UIKit
 
-class MemoTableViewController: UITableViewController {
+class MemoTableViewController: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var searchBar: UISearchBar!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    lazy var dao = MemoDAO()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.enablesReturnKeyAutomatically = false
         
         // 사이드바 라이브러리 객체 선언
         if let revealVC = self.revealViewController(){
@@ -34,6 +38,8 @@ class MemoTableViewController: UITableViewController {
             self.present(vc!, animated: true, completion: nil)
             return
         }
+        
+        self.appDelegate.memolist = self.dao.fetch()
         
         self.tableView.reloadData()
     }
@@ -89,4 +95,31 @@ class MemoTableViewController: UITableViewController {
         vc.param = row
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let data = self.appDelegate.memolist[indexPath.row]
+        
+        if dao.delete(data.objectID!) {
+            self.appDelegate.memolist.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        }
+    }
+    
+    // MARK: - SearchBar Delegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let keyword = searchBar.text
+        
+        self.appDelegate.memolist = self.dao.fetch(keyword: keyword)
+        self.tableView.reloadData()
+        
+    }
 }
+
+
