@@ -117,6 +117,7 @@ class MemoTableViewController: UITableViewController, UISearchBarDelegate {
         let keyword = searchBar.text
         
         self.appDelegate.memolist = self.dao.fetch(keyword: keyword)
+    
         self.tableView.reloadData()
         
     }
