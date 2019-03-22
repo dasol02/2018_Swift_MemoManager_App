@@ -31,15 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-    // MARK: - Core Data stack
-
-    lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Chapter07_CoreData")
+    
+    
+    lazy var persitenContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores{
             if let error = $1 as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -47,19 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return container
     }()
-
-    // MARK: - Core Data Saving support
-
-    func saveContext () {
-        let context = persistentContainer.viewContext
+    
+    
+    func saveContext() {
+        let context = persitenContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch let error as NSError {
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         }
     }
+    
+
+
 
 }
 
