@@ -13,6 +13,7 @@
 		164AB7D1224241BA00D9F7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164AB7D0224241BA00D9F7DF /* Assets.xcassets */; };
 		164AB7D4224241BA00D9F7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164AB7D2224241BA00D9F7DF /* LaunchScreen.storyboard */; };
 		164AB7DC2243645900D9F7DF /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164AB7DB2243645900D9F7DF /* ListTableViewController.swift */; };
+		164AB7E022438BFE00D9F7DF /* LogListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164AB7DF22438BFE00D9F7DF /* LogListTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		164AB7D3224241BA00D9F7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		164AB7D5224241BA00D9F7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		164AB7DB2243645900D9F7DF /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		164AB7DF22438BFE00D9F7DF /* LogListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				164AB7C6224241B900D9F7DF /* AppDelegate.swift */,
 				164AB7DB2243645900D9F7DF /* ListTableViewController.swift */,
+				164AB7DF22438BFE00D9F7DF /* LogListTableViewController.swift */,
 				164AB7CA224241B900D9F7DF /* Main.storyboard */,
 				164AB7D0224241BA00D9F7DF /* Assets.xcassets */,
 				164AB7D2224241BA00D9F7DF /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164AB7E022438BFE00D9F7DF /* LogListTableViewController.swift in Sources */,
 				164AB7DC2243645900D9F7DF /* ListTableViewController.swift in Sources */,
 				164AB7C7224241B900D9F7DF /* AppDelegate.swift in Sources */,
 				164AB7CF224241B900D9F7DF /* Chapter07_CoreData.xcdatamodeld in Sources */,

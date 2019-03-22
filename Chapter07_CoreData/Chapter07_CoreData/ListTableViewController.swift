@@ -104,6 +104,16 @@ class ListTableViewController: UITableViewController {
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
         
+        // 로그 관리 객체 생성
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.create.rawValue
+        
+        
+        // 게시글 객체의 로그 속성에 새로 생성된 로그 객체 추가
+        (object as! BoardMO).addToLog(logObject)
+        // logObject.board = (object as! BoardMO) 반대의 경우
+        
         do {
             try context.save()
 //            self.list.append(object)
@@ -125,6 +135,14 @@ class ListTableViewController: UITableViewController {
         object.setValue(title, forKey: "title")
         object.setValue(contents, forKey: "contents")
         object.setValue(Date(), forKey: "regdate")
+        
+        // 로그 객체 생성
+        let logObject = NSEntityDescription.insertNewObject(forEntityName: "Log", into: context) as! LogMO
+        logObject.regdate = Date()
+        logObject.type = LogType.edit.rawValue
+        
+        // 게시글 객체의 logs 속성에 새로 생성된 로그 객체 추가
+        (object as! BoardMO).addToLog(logObject)
         
         do {
             try context.save()
@@ -166,6 +184,17 @@ class ListTableViewController: UITableViewController {
         cell.date?.font = UIFont.systemFont(ofSize: 12)
 
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let object = self.list[indexPath.row]
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "LogVC") as! LogListTableViewController
+        
+        uvc.board = (object as! BoardMO)
+        
+        self.show(uvc, sender: self)
     }
 
     
