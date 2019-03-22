@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         
         // URL 객체 정의
         let url = URL(string: "http://swiftapi.rubypaper.co.kr:2029/practice/echo")
+        // let url = URL(string: "http://swiftapi.rubypaper.co.kr:2029/practice/echoJSON")
         
         // URL Request 객체 정의
         var request = URLRequest(url: url!)
@@ -56,6 +57,7 @@ class ViewController: UIViewController {
         
         // HTTP 메시지 헤더 설정
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
         request.setValue(String(paramData!.count), forHTTPHeaderField: "Content-Length")
         
         // URL Session 객체를 통해 전송 및 응답값 처리 로직 작성
@@ -66,6 +68,8 @@ class ViewController: UIViewController {
                 NSLog("An error ha occurred \(error.localizedDescription)")
                 return
             }
+            
+             NSLog("Response Data = \(String(data: data!, encoding: String.Encoding.utf8)!)")
             
             // 응답 성공
             DispatchQueue.main.async {
