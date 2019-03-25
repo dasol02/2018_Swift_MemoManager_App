@@ -11,6 +11,10 @@
 		1610BA7D2202932A00B42C51 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1610BA7C2202932A00B42C51 /* ProfileViewController.swift */; };
 		164AB8042244760100D9F7DF /* warning-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 164AB8032244760100D9F7DF /* warning-icon-60@2x.png */; };
 		164AB8062244766800D9F7DF /* MemoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164AB8052244766800D9F7DF /* MemoDAO.swift */; };
+		166283962248B4BB009A02D8 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166283952248B4BB009A02D8 /* JoinViewController.swift */; };
+		1662839A2248CEEA009A02D8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166283992248CEEA009A02D8 /* Alamofire.framework */; };
+		1662839C2248CF8B009A02D8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1662839B2248CF8B009A02D8 /* Alamofire.framework */; };
+		1662839D2248CF8B009A02D8 /* Pods_memoManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55835BFA645669308874EACE /* Pods_memoManagerSwift.framework */; };
 		1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5CF2211643000CEF7BB /* UserInfoManager.swift */; };
 		1698F5D22212809E00CEF7BB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F5D12212809E00CEF7BB /* Tutorial.storyboard */; };
 		1698F5D42212839700CEF7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5D32212839700CEF7BB /* Utils.swift */; };
@@ -58,6 +62,10 @@
 		1610BA7C2202932A00B42C51 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		164AB8032244760100D9F7DF /* warning-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-icon-60@2x.png"; sourceTree = "<group>"; };
 		164AB8052244766800D9F7DF /* MemoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDAO.swift; sourceTree = "<group>"; };
+		166283952248B4BB009A02D8 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		166283972248CED2009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		166283992248CEEA009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1662839B2248CF8B009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1698F5CF2211643000CEF7BB /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		1698F5D12212809E00CEF7BB /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		1698F5D32212839700CEF7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1662839A2248CEEA009A02D8 /* Alamofire.framework in Frameworks */,
 				001341FDA79727A0E8193610 /* Pods_memoManagerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1662839C2248CF8B009A02D8 /* Alamofire.framework in Frameworks */,
+				1662839D2248CF8B009A02D8 /* Pods_memoManagerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +136,6 @@
 				9F7BA367BCF266F62E6A5984 /* Pods-memoManagerSwift.debug.xcconfig */,
 				EB61AF6DCF031CDACBABF800 /* Pods-memoManagerSwift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,6 +158,7 @@
 				16ABD55A219AABA800C101F1 /* MemoReadViewController.swift */,
 				16FCFDFF21FF0C6900E653D1 /* SideBarTableViewController.swift */,
 				1610BA7C2202932A00B42C51 /* ProfileViewController.swift */,
+				166283952248B4BB009A02D8 /* JoinViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -260,6 +271,9 @@
 		B56312139A9057E88A14662D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1662839B2248CF8B009A02D8 /* Alamofire.framework */,
+				166283992248CEEA009A02D8 /* Alamofire.framework */,
+				166283972248CED2009A02D8 /* Alamofire.framework */,
 				55835BFA645669308874EACE /* Pods_memoManagerSwift.framework */,
 			);
 			name = Frameworks;
@@ -431,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16C3637E21FAD8DF006A601E /* CSLogButton.swift in Sources */,
+				166283962248B4BB009A02D8 /* JoinViewController.swift in Sources */,
 				16ABD559219AAB9F00C101F1 /* MemoFormViewController.swift in Sources */,
 				1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */,
 				16ABD55F219AAC0B00C101F1 /* MemoTableViewCell.swift in Sources */,
@@ -612,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299TQXJ7S5;
 				INFOPLIST_FILE = memoManagerSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,6 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 299TQXJ7S5;
 				INFOPLIST_FILE = memoManagerSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
