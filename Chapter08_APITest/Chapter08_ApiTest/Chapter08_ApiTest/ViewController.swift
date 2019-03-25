@@ -45,6 +45,52 @@ class ViewController: UIViewController {
         return [userID,userName]
     }
     
+    // MARK: - Response
+    func response(data: Data?, error: Error?, requestType: String){
+        
+        // 응답 실패
+        if let error = error {
+            NSLog("An error ha occurred \(error.localizedDescription)")
+            return
+        }
+        
+         // 데이타 nill
+        guard let responseData = data else{
+            NSLog("An responseData nill")
+            return
+        }
+        
+        // 응답 성공
+        DispatchQueue.main.async {
+            do {
+                
+                let responseDic = try JSONSerialization.jsonObject(with: responseData, options: [] ) as? NSDictionary
+                
+                guard let jsonObject = responseDic else { return }
+                
+                let result = jsonObject["result"] as? String
+                let timestamp = jsonObject["timestamp"] as? String
+                let userID = jsonObject["userID"] as? String
+                let name = jsonObject["name"] as? String
+                
+                if result == "SUCCESS" {
+                    self.responseView.text =
+                        "아이디 : \(userID ?? "")" + "\n"
+                        + "이름 : \(name ?? "")" + "\n"
+                        + "응답결과 : \(result ?? "")" + "\n"
+                        + "응답시간 : \(timestamp ?? "")" + "\n"
+                        + "요청방식 : \(requestType)"
+                }
+                
+                
+            } catch let e as NSError {
+                NSLog("An Error ha occurred while parsing JSONObject \(e.localizedDescription)")
+            }
+            
+            
+        }
+    }
+    
     
     // MARK: - Request
     func requestPostJsonEchoAPI(){
@@ -65,44 +111,9 @@ class ViewController: UIViewController {
         request.setValue(String(paramData.count), forHTTPHeaderField: "Content-Length")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            // 응답 실패
-            if let error = error {
-                NSLog("An error ha occurred \(error.localizedDescription)")
-                return
-            }
             
             NSLog("Response Data = \(String(data: data!, encoding: String.Encoding.utf8)!)")
-            
-            // 응답 성공
-            DispatchQueue.main.async {
-                do {
-                    
-                    let responseDic = try JSONSerialization.jsonObject(with: data!, options: [] ) as? NSDictionary
-                    
-                    guard let jsonObject = responseDic else { return }
-                    
-                    let result = jsonObject["result"] as? String
-                    let timestamp = jsonObject["timestamp"] as? String
-                    let userID = jsonObject["userID"] as? String
-                    let name = jsonObject["name"] as? String
-                    
-                    if result == "SUCCESS" {
-                        self.responseView.text =
-                            "아이디 : \(userID ?? "")" + "\n"
-                            + "이름 : \(name ?? "")" + "\n"
-                            + "응답결과 : \(result ?? "")" + "\n"
-                            + "응답시간 : \(timestamp ?? "")" + "\n"
-                            + "요청방식 : JSON"
-                    }
-                    
-                    
-                } catch let e as NSError {
-                    NSLog("An Error ha occurred while parsing JSONObject \(e.localizedDescription)")
-                }
-                
-                
-            }
-            
+            self.response(data: data, error: error, requestType: "JSON")
             
         }
         
@@ -136,44 +147,10 @@ class ViewController: UIViewController {
         
         // URL Session 객체를 통해 전송 및 응답값 처리 로직 작성
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            // 응답 실패
-            if let error = error {
-                NSLog("An error ha occurred \(error.localizedDescription)")
-                return
-            }
-            
-             NSLog("Response Data = \(String(data: data!, encoding: String.Encoding.utf8)!)")
-            
+        
             // 응답 성공
-            DispatchQueue.main.async {
-                do {
-                    
-                    let responseDic = try JSONSerialization.jsonObject(with: data!, options: [] ) as? NSDictionary
-                    
-                    guard let jsonObject = responseDic else { return }
-                    
-                    let result = jsonObject["result"] as? String
-                    let timestamp = jsonObject["timestamp"] as? String
-                    let userID = jsonObject["userID"] as? String
-                    let name = jsonObject["name"] as? String
-                    
-                    if result == "SUCCESS" {
-                        self.responseView.text =
-                            "아이디 : \(userID!)" + "\n"
-                            + "이름 : \(name!)" + "\n"
-                            + "응답결과 : \(result!)" + "\n"
-                            + "응답시간 : \(timestamp!)" + "\n"
-                            + "요청방식 : x-www-form-urlencoded"
-                    }
-                    
-                    
-                } catch let e as NSError {
-                    NSLog("An Error ha occurred while parsing JSONObject \(e.localizedDescription)")
-                }
-                
-                
-            }
+            NSLog("Response Data = \(String(data: data!, encoding: String.Encoding.utf8)!)")
+            self.response(data: data, error: error, requestType: "XML")
             
         }
         
