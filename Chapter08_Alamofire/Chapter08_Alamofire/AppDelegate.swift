@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  Chapter08_Alamofire
-//
-//  Created by GAEA on 2019. 3. 25..
-//  Copyright © 2019년 gaeasoft. All rights reserved.
-//
-
 import UIKit
 import CoreData
 

@@ -1,0 +1,7 @@
+source 'https://github.com/Cocopods/specs.git'
+platform :ios, '10.0'
+use_frameworks!
+target 'Chapter08_Alamofire' do
+   pod 'Alamofire'
+project 'path/to/Project.xcodeproj'
+end
