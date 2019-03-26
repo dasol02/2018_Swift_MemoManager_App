@@ -3,6 +3,7 @@ import UIKit
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
+    var isCalling = false
     
     let profileImage = UIImageView()
     let tv = UITableView()
@@ -66,8 +67,20 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
+    // MARK: - Action
+    @IBAction func backProfileVC(_ sgue: UIStoryboardSegue){
+        
+    }
+    
     // 로그인 얼럿창 생성
     @objc func doLogin(_ sender: Any){
+        
+        if self.isCalling == true {
+            self.alert("응답을 기다리고 있는중입니다. \n 잠시만 기다려 주세요.")
+        } else {
+            self.isCalling = true
+        }
+        
         let loginAlert = UIAlertController(title: "Login", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         // 알림창에 들어갈 입력폼 추가
@@ -79,23 +92,33 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             textField.isSecureTextEntry = true
         }
         
-        loginAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel){ (_) in
+            self.isCalling = false
+        })
+        
         loginAlert.addAction(UIAlertAction(title: "Login", style: UIAlertAction.Style.destructive, handler: { (loginalert) in
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
             let account = loginAlert.textFields?[0].text ?? ""
             let passwd = loginAlert.textFields?[1].text ?? ""
             
-            if self.uinfo.login(inputAccount: account, passwd: passwd){
+            self.uinfo.login(inputAccount: account, passwd: passwd, success: {
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.isCalling = false
+                
                 // 로그인 성공
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
                 self.drawBtn()
-            }else{
-                let msg = "로그인에 실패하였습니다."
-                let alert = UIAlertController(title: nil, message: msg, preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
-                self.present(alert, animated: false, completion: nil)
-            }
+            }, fail: { (msg) in
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.isCalling = false
+                
+                self.alert(msg)
+            })
             
         }))
         

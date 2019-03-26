@@ -5,10 +5,13 @@ class JoinViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var fieldAccount: UITextField! // 계정 필드
     var fieldPassword: UITextField! // 비밀번호 필드
     var fieldName: UITextField! // 이름 필드
+    
+    var isCalling = false // API 호출 상태값을 관리할 변수
     
     
     override func viewDidLoad() {
@@ -20,6 +23,8 @@ class JoinViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapperProfile(_:)))
         self.profile.addGestureRecognizer(gesture)
+        
+        self.view.bringSubviewToFront(indicatorView)
     }
     
     
@@ -42,6 +47,15 @@ class JoinViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Action
     @IBAction func submit(_ sender: Any) {
         
+        if self.isCalling == true {
+            self.alert("진행 중입니다. 잠시만 기다려주세요.")
+            return
+        }else{
+            self.isCalling = true
+        }
+        
+        self.indicatorView.startAnimating()
+        
         // 1. 전달할 값 준비
         // 1-1. 이미지를 Base64 인코딩 처리
         let profile = self.profile.image!.pngData()?.base64EncodedString()
@@ -61,10 +75,12 @@ class JoinViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // 3. 서버 응답값 처리
         call.responseJSON { res in
-  
+            
+            self.indicatorView.stopAnimating()
             
             // 3-1. JSON 형식으로 값이 제대로 전달되었는지 확인
             guard let jsonObject = res.result.value as? [String: Any] else {
+                self.isCalling = false
                 self.alert("서버 호출 과정에서 오류가 발생했습니다.")
                 return
             }
@@ -73,10 +89,12 @@ class JoinViewController: UIViewController, UITableViewDelegate, UITableViewData
             let resultCode = jsonObject["result_code"] as! Int
             if resultCode == 0 {
                 self.alert("가입이 완료되었습니다.") {
+                    self.performSegue(withIdentifier: "backProfileVC", sender: self)
                 }
             } else { // 3-4. 응답 코드가 0이 아닐 때에는 실패
                 let errorMsg = jsonObject["error_msg"] as! String
                 self.alert("오류발생 : \(errorMsg)")
+                self.isCalling = false
             }
         }
         

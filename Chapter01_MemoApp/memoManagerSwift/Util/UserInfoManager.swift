@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 
 struct UserInfoKey {
@@ -78,18 +79,50 @@ class UserInfoManager{
     }
     
     // 로그인 시도
-    func login(inputAccount: String, passwd: String) -> Bool {
+    func login(inputAccount: String, passwd: String, success: (() -> Void)? = nil, fail: ((String) -> Void)? = nil){
         
-        if inputAccount == "sqlpro@naver.com" && passwd == "1234" {
-            let ud = UserDefaults.standard
-            ud.set(100, forKey: UserInfoKey.loginID)
-            ud.set(inputAccount, forKey: UserInfoKey.account)
-            ud.set("꼼꼼한 재은 씨", forKey: UserInfoKey.name)
-            ud.synchronize()
-            return true
-        }else{
-            return false
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/login"
+        let param: Parameters = [
+            "account": inputAccount,
+            "passwd" : passwd
+        ]
+        
+        
+        let call = Alamofire.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default)
+        
+        call.responseJSON{ res in
+            
+            guard let jsonObject = res.result.value as? NSDictionary else{
+                fail?("잘못된 응답 형식입니다:\(res.result.value!)")
+                return
+            }
+            
+            let resultCode = jsonObject["result_code"] as! Int
+            
+            if resultCode == 0 {
+                
+                let user = jsonObject["user_info"] as! NSDictionary
+                
+                self.loginID = user["user_id"] as! Int
+                self.account = user["account"] as? String
+                self.name = user["name"] as? String
+                
+                if let path = user["profile_path"] as? String {
+                    if let imageData = try? Data(contentsOf: URL(string:path)!) {
+                        self.profile = UIImage(data: imageData)
+                    }
+                    
+                }
+                
+                success?()
+                
+            } else {
+                let msg = (jsonObject["error_msg"] as? String ?? "로그인이 실패 했습니다.")
+                fail?(msg)
+            }
         }
+        
+        
     }
 
     // 로그아웃
