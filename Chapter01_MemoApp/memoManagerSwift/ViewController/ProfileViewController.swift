@@ -64,6 +64,25 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let tap = UITapGestureRecognizer(target: self, action: #selector(profile(_:)))
         self.profileImage.addGestureRecognizer(tap)
         self.profileImage.isUserInteractionEnabled = true
+        
+        
+        
+        
+        // 키 체인 저장 여부 확인을 위한 임시 코드
+        // 토큰 정보 저장
+        let tk = TokenUtils()
+        
+        if let accessToken = tk.load("kr.co.rubypaper.MyMemory", account: "accessToken") {
+            print("accessTotken = \(accessToken)")
+        } else {
+            print("accessTotken is nil")
+        }
+        
+        if let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken") {
+            print("accessTotken = \(refreshToken)")
+        } else {
+            print("refreshToken is nil")
+        }
 
     }
     
