@@ -63,6 +63,19 @@ class MemoDAO{
         
         do {
             try self.context.save()
+            
+            // 로그인되어 있을 경우 서버에 데이터를 업로드한다.
+            let tk = TokenUtils()
+            
+            if tk.getAuthorizationHeader() != nil {
+                DispatchQueue.global(qos: .background).async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                    let sync = DataSync()
+                    sync.uploadDatum(object) {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }
+                }
+            }
         } catch let error as NSError {
             NSLog("An error has occurred : %s", error.localizedDescription)
         }

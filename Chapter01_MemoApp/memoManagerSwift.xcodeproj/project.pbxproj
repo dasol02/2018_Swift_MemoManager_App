@@ -15,6 +15,7 @@
 		1662839A2248CEEA009A02D8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166283992248CEEA009A02D8 /* Alamofire.framework */; };
 		1662839C2248CF8B009A02D8 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1662839B2248CF8B009A02D8 /* Alamofire.framework */; };
 		1662839D2248CF8B009A02D8 /* Pods_memoManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55835BFA645669308874EACE /* Pods_memoManagerSwift.framework */; };
+		166283A6224CA36B009A02D8 /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166283A5224CA36B009A02D8 /* DataSync.swift */; };
 		1698F5D02211643000CEF7BB /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5CF2211643000CEF7BB /* UserInfoManager.swift */; };
 		1698F5D22212809E00CEF7BB /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1698F5D12212809E00CEF7BB /* Tutorial.storyboard */; };
 		1698F5D42212839700CEF7BB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1698F5D32212839700CEF7BB /* Utils.swift */; };
@@ -66,6 +67,7 @@
 		166283972248CED2009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		166283992248CEEA009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1662839B2248CF8B009A02D8 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		166283A5224CA36B009A02D8 /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
 		1698F5CF2211643000CEF7BB /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		1698F5D12212809E00CEF7BB /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		1698F5D32212839700CEF7BB /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				16C3637D21FAD8DF006A601E /* CSLogButton.swift */,
 				1698F5CF2211643000CEF7BB /* UserInfoManager.swift */,
 				1698F5D32212839700CEF7BB /* Utils.swift */,
+				166283A5224CA36B009A02D8 /* DataSync.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				16F088C7218AD8D400AFB29F /* memoManagerSwift.xcdatamodeld in Sources */,
 				1698F5D92212869000CEF7BB /* TutorialMasterViewController.swift in Sources */,
 				16FCFE0021FF0C6900E653D1 /* SideBarTableViewController.swift in Sources */,
+				166283A6224CA36B009A02D8 /* DataSync.swift in Sources */,
 				16ABD562219AAC9600C101F1 /* MemoData.swift in Sources */,
 				1698F5D42212839700CEF7BB /* Utils.swift in Sources */,
 				1610BA7D2202932A00B42C51 /* ProfileViewController.swift in Sources */,

@@ -137,6 +137,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
                 self.drawBtn()
+                
+                let sync = DataSync()
+                DispatchQueue.global(qos: .background).async {
+                    sync.downloadBackupData() // 서버이 저장된 데이터가 있으면 내려받는다
+                }
+                
+                DispatchQueue.global(qos: .background).async {
+                    sync.uploadData() // 서버에 저장해야 할 데이터가 있으면 업로드한다.
+                }
+                
             }, fail: { (msg) in
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -402,11 +412,11 @@ extension ProfileViewController {
         } else {
             // 인증창 실행 불가 대응
             NSLog("Can Not EvaluatePolicy Fail")
-            NSLog("error = \(error!.localizedDescription!)")
+            NSLog("error = \(error!.localizedDescription)")
             
             switch (error!._code) {
-            case LAError.touchIDNotEnrolled.rawValue :
-                NSLog("터치 아이디가 등록되어 있지 않습니다.")
+//            case LAError.touchIDNotEnrolled.rawValue :
+//                NSLog("터치 아이디가 등록되어 있지 않습니다.")
             case LAError.passcodeNotSet.rawValue :
                 NSLog("패스 코드가 설정되어 있지 않습니다.")
             default :
