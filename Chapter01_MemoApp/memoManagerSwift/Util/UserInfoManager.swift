@@ -135,13 +135,69 @@ class UserInfoManager{
     }
 
     // 로그아웃
-    func logout() -> Bool {
+    func logout(completion: (()->Void)? = nil) -> Bool {
+
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/logout"
+        
+        let tokenUtils = TokenUtils()
+        let header = tokenUtils.getAuthorizationHeader()
+        
+        let call = Alamofire.request(url, method: HTTPMethod.post, encoding: JSONEncoding.default, headers: header)
+        
+        call.responseJSON { _ in
+            
+            self.localLogout()
+            
+            // 전달 받은 완료 클로저를 실행
+            completion?()
+        }
+        
+        
+        return true
+    }
+    
+    // 로그아웃
+    func localLogout(completion: (()->Void)? = nil){
         let ud = UserDefaults.standard
         ud.removeObject(forKey: UserInfoKey.loginID)
         ud.removeObject(forKey: UserInfoKey.account)
         ud.removeObject(forKey: UserInfoKey.name)
         ud.removeObject(forKey: UserInfoKey.profile)
         ud.synchronize()
-        return true
+        
+        let tokenUtils = TokenUtils()
+        tokenUtils.delete("kr.co.rubypaper.MyMemory", account: "refreshToken")
+        tokenUtils.delete("kr.co.rubypaper.MyMemory", account: "accessToken")
+    }
+    
+    func newProfile(_ profile: UIImage?, success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
+        
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/profile"
+        
+        let tk = TokenUtils()
+        let header = tk.getAuthorizationHeader()
+       
+        let profileData =  profile?.pngData()?.base64EncodedString()
+        let param: Parameters = ["profile_image" : profileData!]
+        
+        
+        let call = Alamofire.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        
+        call.responseJSON { res in
+            guard let jsonObject = res.result.value as? NSDictionary else {
+                fail?("올바른 응답값이 아닙니다.")
+                return
+            }
+            
+            let resultCode = jsonObject["result_code"] as! Int
+            
+            if resultCode == 0 {
+                self.profile = profile
+                success?()
+            } else {
+                let msg = (jsonObject["error_msg"] as? String) ?? "이미지 프로필 변경이 실패했습니다."
+                fail?(msg)
+            }
+        }
     }
 }

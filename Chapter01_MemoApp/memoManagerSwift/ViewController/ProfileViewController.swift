@@ -152,7 +152,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         alert.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.destructive, handler: { (alert) in
-            if self.uinfo.logout() {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            self.uinfo.logout() {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 // 로그아웃 성공
                 self.tv.reloadData()
                 self.profileImage.image = self.uinfo.profile
@@ -290,9 +292,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     // 이미지 선택시 호출
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.uinfo.profile = img
-            self.profileImage.image = img
+            
+            self.uinfo.newProfile(img, success: {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.profileImage.image = img
+                
+            }) { (msg) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                self.alert(msg)
+                
+            }
         }
         
         picker.dismiss(animated: true, completion: nil)
