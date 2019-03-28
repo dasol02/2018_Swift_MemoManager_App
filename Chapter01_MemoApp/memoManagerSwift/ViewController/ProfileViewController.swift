@@ -1,4 +1,6 @@
 import UIKit
+import Alamofire
+import LocalAuthentication
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -84,6 +86,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             print("refreshToken is nil")
         }
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tokenValidate()
     }
     
     // MARK: - Action
@@ -307,5 +313,171 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileViewController {
+    
+    // 토큰 인증 메소드
+    func tokenValidate(){
+        
+        // 응답 캐시를 사용하지 않도록
+        URLCache.shared.removeAllCachedResponses()
+        
+        // 키 체인에 엑세스 토큰이 없을 경우 유효성 검증을 진행하지 않음
+        let tk = TokenUtils()
+        guard let header = tk.getAuthorizationHeader() else {
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        // Token Validate API 호출
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/tokenValidate"
+        
+        let validate = Alamofire.request(url, method: HTTPMethod.post, encoding: JSONEncoding.default, headers: header)
+        
+        validate.responseJSON { res in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+            // 응답 결과 확인
+            print(res.result.value!)
+            
+            guard let jsonObject = res.result.value as? NSDictionary else {
+                self.alert("잘못된 응답입니다.")
+                return
+            }
+            
+            let resultCode = jsonObject["result_code"] as! Int
+            
+            if resultCode != 0 { // 토큰이 만료 되었을 경우
+                // 로컬 인증 실행
+                self.touchID()
+            }
+            
+        }
+        
+    }
+    
+    // 터치 아이디 인증 메소드
+    func touchID(){
+        
+        // LAContext 인스턴스 생성
+        let context = LAContext()
+        
+        // 로컬 인증에 사용할 변수 정의
+        var error: NSError?
+        let msg = "인증이 필요합니다."
+        let deviceAuth = LAPolicy.deviceOwnerAuthenticationWithBiometrics // 인증 정책
+        
+        // 로컬 인증이 사용 가능한지 여부 확인
+        if context.canEvaluatePolicy(deviceAuth, error: &error) {
+            // 터치 아이디 인증창 실행
+            context.evaluatePolicy(deviceAuth, localizedReason: msg) { (success, e) in
+                if success { // 인증 성공
+                    // 토큰 갱신 로직 실행
+                    self.refresh()
+                } else {
+                    // 인증 실패 대응
+                    NSLog("error = \((e?.localizedDescription)!)")
+                    
+                    switch (e!._code) {
+                        case LAError.systemCancel.rawValue :
+                            self.alert("시스템에 의해 인증이 취소되었습니다.")
+                        case LAError.userCancel.rawValue :
+                            self.alert("사용자에 의해 인증이 취소되었습니다.") {
+                                self.commonLoggt(true)
+                            }
+                        case LAError.userFallback.rawValue :
+                            OperationQueue.main.addOperation {
+                                self.commonLoggt(true)
+                            }
+                        default :
+                            OperationQueue.main.addOperation {
+                                self.commonLoggt(true)
+                            }
+                    }
+                }
+            }
+        } else {
+            // 인증창 실행 불가 대응
+            NSLog("Can Not EvaluatePolicy Fail")
+            NSLog("error = \(error!.localizedDescription!)")
+            
+            switch (error!._code) {
+            case LAError.touchIDNotEnrolled.rawValue :
+                NSLog("터치 아이디가 등록되어 있지 않습니다.")
+            case LAError.passcodeNotSet.rawValue :
+                NSLog("패스 코드가 설정되어 있지 않습니다.")
+            default :
+                NSLog("터치 아이디를 사용할 수 없습니다.")
+                OperationQueue.main.addOperation {
+                    self.commonLoggt(true)
+                }
+            }
+        }
+    }
+    
+    // 토큰 갱신 메소드
+    func refresh(){
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        // 인증 헤더
+        let tk = TokenUtils()
+        let header = tk.getAuthorizationHeader()
+        
+        // 리프레시 토큰 전달 준비
+        let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken")
+        let param: Parameters = ["refresh_token" : refreshToken!]
+        
+        // 호출 및 응답
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/tokenValidate"
+        let refresh = Alamofire.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        
+        
+        refresh.responseJSON { res in
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+            guard let jsonObject = res.result.value as? NSDictionary else {
+                self.alert("잘못된 응답입니다.")
+                return
+            }
+            
+            // 응답 결과 처리
+            
+            let resultCode = jsonObject["result_code"] as! Int
+            if resultCode == 0 {
+                // 키 체인에 저장된 엑세스 토큰 교체
+                let accessToken = jsonObject["access_token"] as! String
+                tk.save("kr.co.rubypaper.MyMemory", account: "accessToken", value: accessToken)
+            } else {
+                // 실패
+                self.alert("인증이 만료되었으므로 다시 로그인해야 합니다.")
+                
+                // 로그아웃 처리
+                OperationQueue.main.addOperation {
+                    self.commonLoggt(true)
+                }
+            }
+        }
+    }
+    
+    
+    func commonLoggt(_ inLogin: Bool = false) {
+        
+        // 기존 저장된 정보 삭제하여 로그아웃 처리
+        let userInfo = UserInfoManager()
+        userInfo.localLogout()
+        
+        // 현재의 화면이 프포필화면 이라면 바로 UI 갱신
+        self.tv.reloadData()
+        self.profileImage.image = userInfo.profile
+        self.drawBtn()
+        
+        // 기본 로그인 창 실행 여부
+        if inLogin {
+            self.doLogin(self)
+        }
     }
 }
